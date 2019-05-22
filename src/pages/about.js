@@ -6,17 +6,16 @@ import SEO from "../components/seo"
 
 import ContentService from '../services/content.service';
 
-const IndexPage = () => {
-  const copy = ContentService.home;
+const AboutPage = () => {
+  const copy = ContentService.about;
   return (
     <Layout>
       <SEO title="Home" />
       <h1>{copy.title}</h1>
-      {copy.introBlock}
-      {copy.graphic}
-      <Link to="/about/">Go to About</Link>
+      {copy.content}
+      <Link to="/">Go to Home</Link>
     </Layout>
   )
 }
 
-export default IndexPage
+export default AboutPage
