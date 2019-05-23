@@ -1,0 +1,21 @@
+@mixin type-setup($font, $size, $leading) {
+  font-family: map-get($fonts, $font);
+  font-size: map-get($font-sizes, $size);
+  line-height: map-get($font-leadings, $leading);
+}
+
+@mixin list-unstyled() {
+  list-style: none;
+  margin-left: 0;
+}
+
+@mixin list-inline() {
+  @include list-unstyled;
+
+  display: flex;
+}
+
+@mixin center-layout() {
+  margin-right: auto;
+  margin-left: auto;
+}

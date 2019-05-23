@@ -1,0 +1,19 @@
+////
+/// Navigation
+////
+
+.nav-main {
+  @include center-layout;
+
+  width: map-get($widths, md);
+}
+
+.nav-main__list {
+  @include list-inline;
+
+  > li {
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+}

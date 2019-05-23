@@ -1,0 +1,33 @@
+////
+/// Miscellaneous components
+////
+
+.page {
+  @include center-layout;
+
+  &:not(.page--size-xl):not(.page--size-lg):not(.page-sm) {
+    width: map-get($widths, md);
+  }
+}
+
+.page--size-xl {
+  width: map-get($widths, xl);
+}
+
+.page--size-lg {
+  width: map-get($widths, lg);
+}
+
+.page--size-sm {
+  width: map-get($widths, sm);
+}
+
+////
+/// Branding
+////
+
+header {
+  @include center-layout;
+
+  width: map-get($widths, md);
+}
