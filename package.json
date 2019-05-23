@@ -2,7 +2,7 @@
   "name": "daytonave-web",
   "private": true,
   "description": "Website for Dayton Avenue Baptist Church",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Phil Schanely <philschanely@gmail.com>",
   "dependencies": {
     "@mdx-js/mdx": "^1.0.19",
