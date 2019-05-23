@@ -1,7 +1,7 @@
 import React from "react";
 
 export default {
-  title: "About us",
+  title: "Calendar",
   content: (
     <>
       <h2>Coming soon!</h2>

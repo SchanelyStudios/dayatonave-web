@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -10,10 +9,9 @@ const AboutPage = () => {
   const copy = ContentService.about;
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title={copy.title} />
       <h1>{copy.title}</h1>
       {copy.content}
-      <Link to="/">Go to Home</Link>
     </Layout>
   )
 }
