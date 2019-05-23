@@ -1,0 +1,15 @@
+body {
+  @include type-setup(base, base, base);
+}
+
+h1 {
+  @include type-setup(display, display-1, display-1);
+}
+
+h2 {
+  @include type-setup(display, display-2, display-2);
+}
+
+h3 {
+  @include type-setup(display, display-3, display-3);
+}
