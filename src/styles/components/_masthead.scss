@@ -1,0 +1,51 @@
+.masthead {
+  @include center-layout;
+
+  width: map-get($widths, lg);
+  display: grid;
+  grid-template-columns: 400px auto auto auto;
+  grid-template-areas:
+    "contact .   giving socials"
+    "brand   nav nav    nav";
+  grid-column-gap: 20px;
+}
+
+
+.masthead__address {
+  width: max-content;
+}
+
+.masthead__brand {
+  @include type-setup(display, display-2, display-2);
+
+  grid-area: brand;
+}
+
+.masthead__contact-info {
+  @include type-setup(base, sub, sub);
+
+  grid-area: contact;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.masthead__e-giving {
+  grid-area: giving;
+  justify-self: end;
+}
+
+.masthead__nav {
+  grid-area: nav;
+  justify-self: end;
+}
+
+.masthead__phone {
+  width: max-content;
+}
+
+.masthead__socials {
+  grid-area: socials;
+  justify-self: end;
+  display: flex;
+  justify-content: flex-end;
+}

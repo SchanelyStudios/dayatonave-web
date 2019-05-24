@@ -21,13 +21,3 @@
 .page--size-sm {
   width: map-get($widths, sm);
 }
-
-////
-/// Branding
-////
-
-header {
-  @include center-layout;
-
-  width: map-get($widths, md);
-}
