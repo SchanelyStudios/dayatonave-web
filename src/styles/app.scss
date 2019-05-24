@@ -1,7 +1,11 @@
-// Fonts for wireframing
-@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+@import "vars";
 
-@import "vars.scss";
+// Fonts for wireframing
+@import url("https://fonts.googleapis.com/css?family=Ubuntu:400,400i,500,500i,700,700i&display=swap");
+@import "@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "@fortawesome/fontawesome-free/scss/solid.scss";
+@import "@fortawesome/fontawesome-free/scss/brands.scss";
+
 
 @import "mixins/misc";
 
