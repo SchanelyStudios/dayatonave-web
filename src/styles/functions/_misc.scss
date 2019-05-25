@@ -1,0 +1,8 @@
+@function theme-color($index, $item) {
+  $indexMap: map-get($colors, $index);
+  @return map-get($indexMap, $item);
+}
+
+@function center-pad-value($width) {
+  @return calc((100% - #{$width}) / 2);
+}

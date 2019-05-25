@@ -1,0 +1,18 @@
+.nav-item {
+  @extend %type-small-emph;
+
+  &:not(:last-child) {
+    margin-right: 30px;
+  }
+}
+
+.nav-item--active {
+  .nav-item__link {
+    color: theme-color($-active-theme, gray-1);
+  }
+}
+
+.nav-item__link {
+  @extend %link-masthead;
+  padding: 5px;
+}

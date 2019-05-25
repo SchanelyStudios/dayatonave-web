@@ -10,22 +10,27 @@ import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
-import "../styles/app.scss" 
+import "../styles/app.scss"
 
-const Layout = ({ children }) => (
+const Layout = ({ activeNavPath, children }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
         site {
           siteMetadata {
-            title
+            title,
+            subtitle
           }
         }
       }
     `}
     render={data => (
       <>
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Header
+          activeItem={activeNavPath}
+          siteTitle={data.site.siteMetadata.title}
+          siteSubTitle={data.site.siteMetadata.subtitle}
+        />
         <main className="page">{children}</main>
         <footer>
           © {new Date().getFullYear()}, by Dayton Avenue Baptist Church. All rights reserved.

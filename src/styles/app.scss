@@ -1,11 +1,14 @@
 @import "vars";
 
 // Fonts for wireframing
-@import url("https://fonts.googleapis.com/css?family=Ubuntu:400,400i,500,500i,700,700i&display=swap");
-@import "@fortawesome/fontawesome-free/scss/fontawesome.scss";
-@import "@fortawesome/fontawesome-free/scss/solid.scss";
-@import "@fortawesome/fontawesome-free/scss/brands.scss";
+@import url("https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,500,500i,700,700i&display=swap");
+@import "@fortawesome/fontawesome-pro/scss/fontawesome.scss";
+@import "@fortawesome/fontawesome-pro/scss/light.scss";
+@import "@fortawesome/fontawesome-pro/scss/regular.scss";
+@import "@fortawesome/fontawesome-pro/scss/solid.scss";
+@import "@fortawesome/fontawesome-pro/scss/brands.scss";
 
+@import "functions/misc";
 
 @import "mixins/misc";
 
@@ -13,6 +16,12 @@
 @import "core/base";
 @import "core/type";
 
-@import "components/nav-main";
+@import "components/brand";
+@import "components/contact";
+@import "components/e-giving";
+@import "components/link";
 @import "components/masthead";
-@import "components/misc";
+@import "components/nav-item";
+@import "components/nav-main";
+@import "components/page";
+@import "components/social";
