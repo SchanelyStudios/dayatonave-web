@@ -3,17 +3,12 @@
 ////
 
 .nav-main {
-  @include center-layout;
-
-  width: map-get($widths, md);
+  margin-right: -5px;
+  margin-left: -5px;
 }
 
 .nav-main__list {
   @include list-inline;
 
-  > li {
-    &:not(:last-child) {
-      margin-right: 20px;
-    }
-  }
+  justify-content: flex-end;
 }

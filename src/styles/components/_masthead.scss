@@ -1,0 +1,49 @@
+.masthead {
+  @include center-pad(lg);
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: grid;
+  grid-template-columns: max-content auto max-content;
+  grid-template-rows: 20px auto;
+  grid-template-areas:
+    "contact giving socials"
+    "brand   nav    nav";
+  grid-column-gap: 30px;
+  grid-row-gap: 20px;
+  align-items: baseline;
+  background-color: theme-color($-active-theme, gray-3);
+
+  &::after {
+    content: "";
+    height: 0;
+    border-bottom: 1px solid theme-color($-active-theme, gray-2);
+    position: absolute;
+    top: 40px;
+    right: 0;
+    left: 0;
+  }
+}
+
+.masthead__brand {
+  grid-area: brand;
+}
+
+.masthead__contacts {
+  grid-area: contact;
+}
+
+.masthead__e-giving {
+  grid-area: giving;
+  justify-self: right;
+}
+
+.masthead__nav {
+  grid-area: nav;
+  justify-self: end;
+}
+
+.masthead__socials {
+  grid-area: socials;
+  justify-self: right;
+}

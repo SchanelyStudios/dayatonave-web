@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Dayton Avenue Baptist Church`,
+    title: `Dayton Avenue`,
+    subtitle: `Baptist Church`,
     description: `Description coming soon.`,
     author: `@philschanely`,
   },

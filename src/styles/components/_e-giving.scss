@@ -1,0 +1,10 @@
+.e-giving {}
+
+.e-giving--masthead {
+  @extend %type-small-emph;
+}
+
+.e-giving__link {
+  @extend %link-masthead;
+  padding: 5px;
+}

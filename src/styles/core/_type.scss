@@ -1,15 +1,74 @@
+////
+/// Base type definitions
+////
+
+%type-base {
+  @include type-setup(base, base, base, regular);
+}
+
+%type-display-1 {
+  @include type-setup(display, display-1, display-1, regular);
+}
+
+%type-display-2 {
+  @include type-setup(display, display-2, display-2, regular);
+}
+
+%type-display-3 {
+  @include type-setup(display, display-3, display-3, regular);
+}
+
+%type-display-4 {
+  @include type-setup(display, display-4, display-4, regular);
+}
+
+%type-display-4-emp {
+  @include type-setup(display, base, display-4, medium);
+  text-transform: uppercase;
+}
+
+%type-lead {
+  @include type-setup(display, lead, lead, regular);
+}
+
+%type-small {
+  @include type-setup(base, sub, sub, regular);
+}
+
+%type-small-emph {
+  @include type-setup(base, sub, sub, regular);
+  text-transform: uppercase;
+}
+
+
+////
+/// Simple extensiions
+////
+
 body {
-  @include type-setup(base, base, base);
+  @extend %type-base;
 }
 
-h1 {
-  @include type-setup(display, display-1, display-1);
+h1:not([class]) {
+  @extend %type-display-1;
 }
 
-h2 {
-  @include type-setup(display, display-2, display-2);
+h2:not([class]) {
+  @extend %type-display-2;
 }
 
-h3 {
-  @include type-setup(display, display-3, display-3);
+h3:not([class]) {
+  @extend %type-display-3;
+}
+
+.lead {
+  @extend %type-lead;
+}
+
+li {
+  @extend %type-base;
+}
+
+p {
+  @extend %type-base;
 }

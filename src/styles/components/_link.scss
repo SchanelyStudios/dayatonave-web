@@ -1,0 +1,12 @@
+%link {
+  
+}
+
+%link-masthead {
+  color: theme-color($-active-theme, link);
+
+  &:hover {
+    color: theme-color($-active-theme, gray-1);
+    text-decoration: none;
+  }
+}

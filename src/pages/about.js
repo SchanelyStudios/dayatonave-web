@@ -8,7 +8,7 @@ import ContentService from '../services/content.service';
 const AboutPage = () => {
   const copy = ContentService.about;
   return (
-    <Layout>
+    <Layout activeNavPath="/about">
       <SEO title={copy.title} />
       <h1>{copy.title}</h1>
       {copy.content}

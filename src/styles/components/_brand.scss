@@ -1,0 +1,43 @@
+.brand {
+  position: relative;
+  color: theme-color($-active-theme, gray-1);
+}
+
+.brand--inline {
+  display: grid;
+  grid-column-gap: 10px;
+  grid-template-columns: repeat(3, auto);
+  justify-content: left;
+  align-items: baseline;
+}
+
+.brand__logo {
+  width: 30px;
+  height: 30px;
+  background-color: theme-color($-active-theme, gray-1);
+  border-radius: 4px;
+  transform: translateY(5px);
+}
+
+.brand__link {
+  @extend %type-display-4;
+
+  color: theme-color($-active-theme, gray-1);
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &::before {
+    content: "";
+    @include fill-container;
+  }
+}
+
+.brand__subtitle {
+  @extend %type-display-4-emp;
+}
+
+.brand__title {
+  @extend %type-display-4;
+}

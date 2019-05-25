@@ -1,21 +1,77 @@
-@mixin type-setup($font, $size, $leading) {
-  font-family: map-get($fonts, $font);
-  font-size: map-get($font-sizes, $size);
-  line-height: map-get($font-leadings, $leading);
-}
 
-@mixin list-unstyled() {
-  list-style: none;
-  margin-left: 0;
-}
-
-@mixin list-inline() {
-  @include list-unstyled;
-
-  display: flex;
-}
+////
+/// Center Layout
+///
+/// Centers an element using `auto` margins.
+////
 
 @mixin center-layout() {
   margin-right: auto;
   margin-left: auto;
+}
+
+
+////
+/// Centers Layout Padding Variation
+///
+/// Centers an element using padding calculated from a max width.
+////
+
+@mixin center-pad($width, $addBoxSizing: true) {
+  $widthValue: map-get($widths, $width);
+
+  @if (not $widthValue) {
+    $widthValue: $width;
+  }
+
+  padding-right: center-pad-value($widthValue);
+  padding-left: center-pad-value($widthValue);
+
+  @if ($addBoxSizing) {
+    box-sizing: border-box;
+  }
+}
+
+
+////
+/// Fill Container
+///
+/// Instructs an element to fill its container by absolutely positioning it to
+/// span all sides of the box.
+////
+
+@mixin fill-container() {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+
+////
+/// Inline List
+///
+/// Sets up an inline list such as for tiling elements.
+////
+
+@mixin list-inline() {
+  display: flex;
+  list-style: none;
+}
+
+
+////
+/// Type setup
+///
+/// Sets up font, size, leading, and weight from font maps
+////
+
+@mixin type-setup($font: base, $size: base, $leading: base, $weight: regular) {
+  $font-weight: map-get($font-weights, $font);
+
+  font-family: map-get($fonts, $font);
+  font-size: map-get($font-sizes, $size);
+  font-weight: map-get($font-weight, $weight);
+  line-height: map-get($font-leadings, $leading);
 }

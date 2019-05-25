@@ -1,0 +1,23 @@
+.social {
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+}
+
+.social__link {
+  @extend %link-masthead;
+
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.social__icon {
+
+}
+
+.socials {
+  margin-right: -5px;
+  margin-left: -5px;
+  display: flex;
+  justify-content: right;
+}

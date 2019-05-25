@@ -1,25 +1,62 @@
+$fa-font-path: '../../node_modules/@fortawesome/fontawesome-pro/webfonts';
+
 $fonts: (
   base: ('Ubuntu', sans-serif),
   display: ('Ubuntu', sans-serif),
 );
 
 $font-leadings: (
-  display-1: 6rem,
-  display-2: 4rem,
-  display-3: 2rem,
-  base: 2rem,
+  title: 7.4rem,
+  display-1: 6.4rem,
+  display-2: 4.8rem,
+  display-3: 3.8rem,
+  display-4: 3.1rem,
+  lead: 3.5rem,
+  base: 2.4rem,
+  sub: 1.3rem,
 );
 
 $font-sizes: (
+  title: 6.6rem,
   display-1: 5rem,
-  display-2: 3rem,
-  display-3: 1.8rem,
-  base: 1.4rem,
+  display-2: 3.8rem,
+  display-3: 2.8rem,
+  display-4: 2.1rem,
+  lead: 2.6rem,
+  base: 1.6rem,
+  sub: 1.2rem,
+);
+
+$font-weights: (
+  display: (
+    light: 400,
+    regular: 400,
+    medium: 500,
+    bold: 700,
+  ),
+  base: (
+    light: 400,
+    regular: 400,
+    medium: 500,
+    bold: 700,
+  )
 );
 
 $widths: (
   xl: 1400px,
-  lg: 1100px,
-  md: 800px,
+  lg: 1000px,
+  md: 760px,
   sm: 550,
 );
+
+$colors: (
+  wireframe: (
+    gray-1: #424b5a,
+    gray-2: #c2d1d9,
+    gray-3: #f2f5f7,
+    gray-4: #fafafa,
+    link: #a1aeb7,
+  )
+);
+
+$-active-theme: wireframe;

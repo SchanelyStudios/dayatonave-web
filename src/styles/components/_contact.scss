@@ -1,0 +1,26 @@
+.contact {
+  color: theme-color($-active-theme, gray-1);
+}
+
+.contact--address {}
+
+.contact--phone {}
+
+.contact__content {
+  @include type-setup(base, sub, sub);
+}
+
+.contact__icon {
+  margin-right: 10px;
+}
+
+.contacts {
+  display: flex;
+  flex-flow: row wrap;
+
+  .contact {
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
+}
