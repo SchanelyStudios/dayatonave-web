@@ -13,7 +13,7 @@ const IndexPage = () => {
       <h1>{copy.title}</h1>
       {copy.introBlock}
       {copy.graphic}
-    </Layout>
+    </Layout> 
   )
 }
 

@@ -1,6 +1,9 @@
 a {
-  color: theme-color($-active-theme, link);
   text-decoration: none;
+
+  &:not([class]) {
+    color: theme-color($-active-theme, link);
+  }
 
   &:hover {
     text-decoration: underline;

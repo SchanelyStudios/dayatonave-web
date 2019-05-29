@@ -1,10 +1,21 @@
-.e-giving {}
-
-.e-giving--masthead {
-  @extend %type-small-emph;
+.e-giving {
+  margin-right: -5px;
+  margin-left: -5px;
 }
 
 .e-giving__link {
-  @extend %link-masthead;
+  @extend %type-small-emph;
+  @extend %link-nav;
+
+  display: block;
   padding: 5px;
+}
+
+.e-giving__more-link {
+  @extend %type-small;
+  @extend %link-nav;
+
+  display: block;
+  padding-right: 5px;
+  padding-left: 5px;
 }

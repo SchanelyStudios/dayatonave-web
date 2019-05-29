@@ -5,12 +5,13 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
-import React from "react"
-import PropTypes from "prop-types"
-import { StaticQuery, graphql } from "gatsby"
+import React from "react";
+import PropTypes from "prop-types";
+import { StaticQuery, graphql } from "gatsby";
 
-import Header from "./header"
-import "../styles/app.scss"
+import Header from "./header";
+import Footer from "./footer";
+import "../styles/app.scss";
 
 const Layout = ({ activeNavPath, children }) => (
   <StaticQuery
@@ -32,9 +33,10 @@ const Layout = ({ activeNavPath, children }) => (
           siteSubTitle={data.site.siteMetadata.subtitle}
         />
         <main className="page">{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, by Dayton Avenue Baptist Church. All rights reserved.
-        </footer>
+        <Footer
+          siteTitle={data.site.siteMetadata.title}
+          siteSubTitle={data.site.siteMetadata.subtitle}
+        />
       </>
     )}
   />
@@ -42,6 +44,6 @@ const Layout = ({ activeNavPath, children }) => (
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Layout
+export default Layout;
