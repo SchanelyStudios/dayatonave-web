@@ -1,18 +1,32 @@
 .nav-item {
   @extend %type-small-emph;
 
+  margin-left: -5px;
+
   &:not(:last-child) {
-    margin-right: 30px;
+    margin-right: 35px;
+  }
+
+  &:last-child {
+    margin-right: -5px;
   }
 }
 
-.nav-item--active {
-  .nav-item__link {
-    color: theme-color($-active-theme, gray-1);
-  }
-}
+.nav-item--active {}
 
 .nav-item__link {
-  @extend %link-masthead;
   padding: 5px;
+
+  .nav-item:not(.nav-item--active) & {
+    @extend %link-nav;
+  }
+
+  .nav-item--active & {
+    color: theme-color($-active-theme, gray-1);
+
+    &:hover {
+      color: theme-color($-active-theme, gray-1);
+      text-decoration: none;
+    }
+  }
 }

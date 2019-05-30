@@ -1,28 +1,48 @@
 .brand {
   position: relative;
   color: theme-color($-active-theme, gray-1);
+  display: grid;
+  grid-gap: 10px;
+
+  &:not(.brand--inline) {
+    grid-template-columns: 80px auto;
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas:
+      "logo main"
+      "logo tag";
+  }
 }
 
 .brand--inline {
-  display: grid;
-  grid-column-gap: 10px;
   grid-template-columns: repeat(3, auto);
   justify-content: left;
   align-items: baseline;
 }
 
 .brand__logo {
-  width: 30px;
-  height: 30px;
   background-color: theme-color($-active-theme, gray-1);
   border-radius: 4px;
-  transform: translateY(5px);
+
+  .brand:not(.brand--inline) & {
+    grid-area: logo;
+    max-width: 100%;
+  }
+
+  .brand--inline & {
+    width: 30px;
+    height: 30px;
+    transform: translateY(5px);
+  }
 }
 
 .brand__link {
   @extend %type-display-4;
 
   color: theme-color($-active-theme, gray-1);
+
+  .brand:not(.brand--inline) & {
+    align-self: end;
+  }
 
   &:hover {
     text-decoration: none;

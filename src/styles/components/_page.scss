@@ -8,6 +8,11 @@
   &:not(.page--size-xl):not(.page--size-lg):not(.page-sm) {
     width: map-get($widths, lg);
   }
+
+  &:not(.page--full-bleed) {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
 }
 
 .page--size-xl {
@@ -20,4 +25,9 @@
 
 .page--size-sm {
   width: map-get($widths, sm);
+}
+
+.page--full-bleed {
+  padding-top: 0;
+  padding-bottom: 0;
 }
