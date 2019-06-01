@@ -1,0 +1,21 @@
+%button {
+  margin-right: auto;
+  margin-left: auto;
+  padding: 10px 20px;
+  display: inline-block;
+  background-color: theme-color($-active-theme, gray-1);
+  text-align: center;
+  color: theme-color($-active-theme, gray-4);
+  min-width: 200px;
+  width: max-content;
+
+  &:hover {
+    text-decoration: none;
+    color: #fff; 
+  }
+}
+
+.btn,
+button {
+  @extend %button;
+}
