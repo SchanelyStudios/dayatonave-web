@@ -11,6 +11,6 @@ const ChildrensMinistriesPage = () => {
       <p>Content coming soon!</p>
     </Layout>
   );
-}
+};
 
 export default ChildrensMinistriesPage;

@@ -40,7 +40,7 @@ const Layout = ({ activeNavPath, children }) => (
       </>
     )}
   />
-)
+);
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
