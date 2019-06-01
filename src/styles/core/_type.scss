@@ -7,19 +7,19 @@
 }
 
 %type-display-1 {
-  @include type-setup(display, display-1, display-1, regular);
+  @include type-setup(display, display-1, display-1, bold);
 }
 
 %type-display-2 {
-  @include type-setup(display, display-2, display-2, regular);
+  @include type-setup(display, display-2, display-2, bold);
 }
 
 %type-display-3 {
-  @include type-setup(display, display-3, display-3, regular);
+  @include type-setup(display, display-3, display-3, bold);
 }
 
 %type-display-4 {
-  @include type-setup(display, display-4, display-4, regular);
+  @include type-setup(display, display-4, display-4, bold);
 }
 
 %type-display-4-emp {
@@ -28,7 +28,7 @@
 }
 
 %type-lead {
-  @include type-setup(display, lead, lead, regular);
+  @include type-setup(display, lead, lead, light);
 }
 
 %type-small {
