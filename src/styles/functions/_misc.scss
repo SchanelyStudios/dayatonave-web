@@ -1,8 +1,23 @@
-@function theme-color($index, $item) {
-  $indexMap: map-get($colors, $index);
-  @return map-get($indexMap, $item);
+/// Returns a `calc()` for one side of a center-padded block
+/// @param {Length} $width [100%] The base width to center
+/// @param {Length} $pad [0] If greater than 0, adds additional padding inside the width
+/// @return A `calc()` statement
+@function center-pad-value($width: 100%, $pad: 0) {
+  @if ($pad > 0) {
+    @return calc((100vw - #{$width} + #{($pad * 2)}) / 2);
+  }
+
+  @return calc((100vw - #{$width}) / 2);
 }
 
-@function center-pad-value($width) {
-  @return calc((100% - #{$width}) / 2);
+
+/// Get color from a given theme map
+/// @param {String} $color-name The name of the desired color from the theme map
+///
+/// @param {String} $theme [$-active-theme] The theme map to use for retrieving
+/// the color. Defaults to whatever is set as the `$-active-theme`
+@function theme-color($color-name, $theme: $-active-theme) {
+  $theme-map: map-get($colors, $theme);
+
+  @return map-get($theme-map, $color-name);
 }

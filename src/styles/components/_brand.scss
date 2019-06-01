@@ -1,6 +1,6 @@
 .brand {
   position: relative;
-  color: theme-color($-active-theme, gray-1);
+  color: theme-color(gray-1);
   display: grid;
   grid-gap: 10px;
 
@@ -20,7 +20,7 @@
 }
 
 .brand__logo {
-  background-color: theme-color($-active-theme, gray-1);
+  background-color: theme-color(gray-1);
   border-radius: 4px;
 
   .brand:not(.brand--inline) & {
@@ -38,7 +38,7 @@
 .brand__link {
   @extend %type-display-4;
 
-  color: theme-color($-active-theme, gray-1);
+  color: theme-color(gray-1);
 
   .brand:not(.brand--inline) & {
     align-self: end;

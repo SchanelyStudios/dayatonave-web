@@ -22,7 +22,7 @@
   padding-left: 20px;
   padding-right: 20px;
   grid-area: content;
-  background-color: theme-color($-active-theme, gray-3);
+  background-color: theme-color(gray-3);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -42,7 +42,7 @@
 .media-block__heading {
   @extend %type-display-3;
 
-  color: theme-color($-active-theme, gray-1);
+  color: theme-color(gray-1);
   text-align: center;
 }
 

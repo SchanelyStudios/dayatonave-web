@@ -2,7 +2,7 @@ a {
   text-decoration: none;
 
   &:not([class]) {
-    color: theme-color($-active-theme, link);
+    color: theme-color(link);
   }
 
   &:hover {
