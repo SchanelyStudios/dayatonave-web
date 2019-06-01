@@ -1,0 +1,44 @@
+.ministry-block {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 15px;
+  margin-right: 15px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-areas:
+    "f f f c c c c c c c c c";
+  grid-column-gap: 30px;
+}
+
+.ministry-block__content {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  grid-area: c;
+}
+
+.ministry-block__heading {
+  @extend %type-display-4;
+
+  margin-bottom: 10px;
+  color: theme-color(gray-1);
+}
+
+.ministry-block__copy {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: theme-color(link);
+}
+
+.ministry-block__more-link {
+  margin-top: 10px;
+}
+
+.ministry-block__figure {
+  grid-area: f;
+}
+
+.ministry-block__image {
+  @include cover-image;
+}
+
+.ministry-blocks {}

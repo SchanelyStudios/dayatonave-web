@@ -11,6 +11,6 @@ const LifeGroupsPage = () => {
       <p>Content coming soon!</p>
     </Layout>
   );
-}
+};
 
 export default LifeGroupsPage;

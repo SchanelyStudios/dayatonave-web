@@ -11,6 +11,6 @@ const WorshipPage = () => {
       <p>Content coming soon!</p>
     </Layout>
   );
-}
+};
 
 export default WorshipPage;

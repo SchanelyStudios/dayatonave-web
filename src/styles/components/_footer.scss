@@ -11,12 +11,12 @@
     "contact main      ministries connect   e-giving"
     "terms   copyright copyright  copyright copyright";
   position: relative;
-  background-color: theme-color($-active-theme, gray-3);
+  background-color: theme-color(gray-3);
 
   &::after {
     content: "";
     height: 0;
-    border-bottom: 1px solid theme-color($-active-theme, gray-2);
+    border-bottom: 1px solid theme-color(gray-2);
     position: absolute;
     right: 0;
     bottom: 40px;
@@ -59,14 +59,14 @@
 .footer__members-copy {
   @extend %type-small;
 
-  color: theme-color($-active-theme, link);
+  color: theme-color(link);
   display: block;
 }
 
 .footer__members-link {
   @extend %type-small-emph;
 
-  color: theme-color($-active-theme, gray-1);
+  color: theme-color(gray-1);
   display: block;
 
   &:hover {
@@ -89,7 +89,7 @@
 
   margin-top: 10px;
   margin-bottom: 10px;
-  color: theme-color($-active-theme, link);
+  color: theme-color(link);
 
   * {
     font-size: inherit;
@@ -100,7 +100,7 @@
 .footer-group__heading {
   @extend %type-small-emph;
 
-  color: theme-color($-active-theme, gray-1);
+  color: theme-color(gray-1);
 }
 
 .footer-group__heading-link {

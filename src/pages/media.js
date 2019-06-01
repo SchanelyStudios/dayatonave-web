@@ -21,7 +21,7 @@ const AboutPage = () => {
               <p className="media-block__copy">
                 {content}
               </p>
-              <a className="media-block__button btn btn--inverse" href={"#"}>
+              <a className="media-block__button btn btn--inverse" href={"//example.com"}>
                 Check it out
               </a>
             </div>

@@ -1,7 +1,7 @@
-import React from "react"
+import React from "react";
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
 import ContentService from '../services/content.service';
 
@@ -13,7 +13,7 @@ const AboutPage = () => {
       <h1>{copy.title}</h1>
       {copy.content}
     </Layout>
-  )
-}
+  );
+};
 
-export default AboutPage
+export default AboutPage;

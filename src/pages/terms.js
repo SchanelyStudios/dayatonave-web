@@ -11,6 +11,6 @@ const TermsPage = () => {
       <p>Content coming soon!</p>
     </Layout>
   );
-}
+};
 
 export default TermsPage;

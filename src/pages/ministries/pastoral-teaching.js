@@ -11,6 +11,6 @@ const PastoralTeachingPage = () => {
       <p>Content coming soon!</p>
     </Layout>
   );
-}
+};
 
 export default PastoralTeachingPage;

@@ -1,0 +1,33 @@
+.intro-block {
+  margin-right: 15px;
+  margin-left: 15px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-areas:
+    "c c c c c . f f f f f f";
+  grid-column-gap: 30px;
+}
+
+.intro-block__content {
+  grid-area: c;
+}
+
+.intro-block__heading {
+  @extend %type-display-1;
+
+  color: theme-color(gray-1);
+  margin-bottom: 20px;
+  max-width: 300px;
+}
+
+.intro-block__copy {
+  color: theme-color(link);
+}
+
+.intro-block__figure {
+  grid-area: f;
+}
+
+.intro-block__image {
+  @include cover-image;
+}

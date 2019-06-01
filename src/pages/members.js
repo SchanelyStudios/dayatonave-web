@@ -11,6 +11,6 @@ const MembersMainPage = () => {
       <p>Content coming soon!</p>
     </Layout>
   );
-}
+};
 
 export default MembersMainPage;

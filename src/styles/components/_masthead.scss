@@ -1,5 +1,5 @@
 .masthead {
-  @include center-pad(lg);
+  @include center-pad(lg, 15px);
 
   padding-top: 10px;
   padding-bottom: 10px;
@@ -12,12 +12,12 @@
   grid-column-gap: 30px;
   grid-row-gap: 20px;
   align-items: baseline;
-  background-color: theme-color($-active-theme, gray-3);
+  background-color: theme-color(gray-3);
 
   &::after {
     content: "";
     height: 0;
-    border-bottom: 1px solid theme-color($-active-theme, gray-2);
+    border-bottom: 1px solid theme-color(gray-2);
     position: absolute;
     top: 40px;
     right: 0;
