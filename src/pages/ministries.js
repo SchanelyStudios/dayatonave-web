@@ -35,7 +35,6 @@ const bootstrap = (input) => {
   const page = input.data.prismic.ministry_page;
   const ministries = [];
   page.ministries.forEach(({ ministry }, i) => {
-    console.log(ministry);
     ministries.push({
       name: RichText.asText(ministry.ministry_name),
       intro: RichText.render(ministry.short_description),
@@ -52,8 +51,8 @@ const bootstrap = (input) => {
       imageURL: page.intro_image.url,
     },
     ministries,
-  }
-}
+  };
+};
 
 const MinistryPage = (input) => {
   const { title, intro, ministries } = bootstrap(input);
