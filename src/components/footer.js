@@ -62,7 +62,7 @@ const Footer = ({ siteTitle, siteSubTitle }) => (
       </ul>
     </div>
 
-    <p className="footer__members footer-group">
+    <div className="footer__members footer-group">
       <h2 className="footer-group__heading">
         <Link className="footer-group__heading-link" to={FooterConfig.members.path}>
           {FooterConfig.members.label}
@@ -71,7 +71,7 @@ const Footer = ({ siteTitle, siteSubTitle }) => (
       <div className="footer-group__copy">
         <p>News and other information for members and regular attendees.</p>
       </div>
-    </p>
+    </div>
 
     <p className="footer__e-giving e-giving">
       <a className="e-giving__link" href={FooterConfig.eGiving.url}>
