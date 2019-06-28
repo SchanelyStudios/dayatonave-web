@@ -1,61 +1,38 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
 
-import { RichText } from 'prismic-reactjs';
-
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
+import ContentService from "../services/content.service";
+
 export const query = graphql`
-query{
-  prismic {
-    ministry_page(uid:"ministries", lang:"en-us") {
-      page_title
-      intro_image
-      intro_copy
-      intro_heading
-      ministries {
-        ministry {
-          ... on PRISMIC_Ministry {
-            _meta {
-              uid
+  query{
+    prismic {
+      ministry_page(uid:"ministries", lang:"en-us") {
+        page_title
+        intro_image
+        intro_copy
+        intro_heading
+        ministries {
+          ministry {
+            ... on PRISMIC_Ministry {
+              _meta {
+                uid
+              }
+              ministry_name
+              short_description
+              thumbnail
             }
-            ministry_name
-            short_description
-            thumbnail
           }
         }
       }
     }
   }
-}
 `;
 
-const bootstrap = (input) => {
-  const page = input.data.prismic.ministry_page;
-  const ministries = [];
-  page.ministries.forEach(({ ministry }, i) => {
-    ministries.push({
-      name: RichText.asText(ministry.ministry_name),
-      intro: RichText.render(ministry.short_description),
-      imageURL: ministry.thumbnail.url,
-      path: `/ministries/${ministry._meta.uid}`,
-    });
-  });
-
-  return {
-    title: RichText.asText(page.page_title),
-    intro: {
-      heading: RichText.asText(page.intro_heading),
-      copy: RichText.render(page.intro_copy),
-      imageURL: page.intro_image.url,
-    },
-    ministries,
-  };
-};
-
 const MinistryPage = (input) => {
-  const { title, intro, ministries } = bootstrap(input);
+  const { title, intro, ministries } = ContentService.ministries(input);
 
   return (
     <Layout activeNavPath="/ministries">

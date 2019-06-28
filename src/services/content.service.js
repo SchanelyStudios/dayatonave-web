@@ -3,7 +3,8 @@ import home from '../mocks/home';
 import calendar from '../mocks/calendar';
 import contact from '../mocks/contact';
 import media from '../mocks/media';
-import ministries from '../mocks/ministries';
+import MinistriesMocks from '../mocks/ministries';
+import MinistriesPrismic from '../prismic/ministries.prismic';
 
 export default {
   about,
@@ -11,5 +12,9 @@ export default {
   contact,
   home,
   media,
-  ministries,
+  ministries: (input) => {
+    return input.useMock
+      ? MinistriesMocks
+      : MinistriesPrismic(input);
+  },
 };

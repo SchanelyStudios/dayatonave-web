@@ -13,3 +13,12 @@ a {
 html {
   font-size: 10px;
 }
+
+*[aria-hidden="true"] {
+  overflow: hidden;
+  height: 0;
+  width: 0;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+}
