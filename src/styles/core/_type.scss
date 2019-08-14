@@ -76,3 +76,7 @@ li {
 p {
   @extend %type-base;
 }
+
+strong, b {
+  font-weight: bold;
+}

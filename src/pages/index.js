@@ -2,6 +2,7 @@ import React from "react";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import YouTube from 'react-youtube';
 
 import SmartLink from "../components/common/smart-link";
 
@@ -24,6 +25,7 @@ const apiKey = process.env.GOOGLE_API;
 
 const IndexPage = () => {
   const copy = ContentService.home;
+  console.log(copy);
   return (
     <Layout activeNavPath="/">
       <SEO title={copy.title} />
@@ -31,7 +33,7 @@ const IndexPage = () => {
         <h1 aria-hidden="true">{copy.title}</h1>
         <div className="home__features">
           <SmartLink>
-            <img src="//placehold.it/1620x1000/?text=Carousel%20FPO" />
+            <img src="//placehold.it/1620x1000/?text=Carousel%20FPO" alt="" />
           </SmartLink>
           {/* TODO: Add carousel styles and functionality */}
           {/*<ul className="home__feature-list">
@@ -46,8 +48,11 @@ const IndexPage = () => {
           </ul>*/}
         </div>
         <div className="home__intro">
-          {copy.introBlock}
-          {copy.graphic}
+          <YouTube  className="home__intro__video" videoId={copy.videoId} />
+          <div className="home__intro__content">
+            {copy.introBlock}
+            {copy.graphic}
+          </div>
         </div>
         <div className="home__location-times">
           <div className="home__location-times__map">
@@ -83,6 +88,19 @@ const IndexPage = () => {
               ))}
             </ul>
           </div>
+        </div>
+        <div className="home__what-to-expect">
+          <h3>{copy.what_to_expect.title}</h3>
+          <ul className="home__what-to-expect__grid">
+            {copy.what_to_expect.items.map(({ heading, content }, i) => (
+              <li key={i}>
+                <img src="https://placehold.it/400x300" alt="" />
+                <h4>{heading}</h4>
+                {content}
+              </li>
+            ))}
+          </ul>
+          <SmartLink className="btn" path="/ministries">Our Ministries</SmartLink>
         </div>
       </main>
     </Layout>

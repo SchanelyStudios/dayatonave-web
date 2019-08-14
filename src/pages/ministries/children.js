@@ -7,8 +7,10 @@ const ChildrensMinistriesPage = () => {
   return (
     <Layout activeNavPath="/ministries">
       <SEO title="Children's Ministries" />
-      <h1>Children's Ministries</h1>
-      <p>Content coming soon!</p>
+      <main className="page">
+        <h1>Children's Ministries</h1>
+        <p>Content coming soon!</p>
+      </main>
     </Layout>
   );
 };

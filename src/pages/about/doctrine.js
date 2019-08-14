@@ -7,8 +7,10 @@ const DoctrinePage = () => {
   return (
     <Layout activeNavPath="/about">
       <SEO title="Doctrine" />
-      <h1>Doctrine</h1>
-      <p>Content coming soon!</p>
+      <main className="page">
+        <h1>Doctrine</h1>
+        <p>Content coming soon!</p>
+      </main>
     </Layout>
   );
 }
