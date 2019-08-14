@@ -7,8 +7,10 @@ const PastoralTeachingPage = () => {
   return (
     <Layout activeNavPath="/ministries">
       <SEO title="Pastoral Teaching Ministry" />
-      <h1>Pastoral Teaching Ministry</h1>
-      <p>Content coming soon!</p>
+      <main className="page">
+        <h1>Pastoral Teaching Ministry</h1>
+        <p>Content coming soon!</p>
+      </main>
     </Layout>
   );
 };

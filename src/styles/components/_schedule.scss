@@ -1,0 +1,27 @@
+.schedule {}
+.schedule__day {}
+.schedule__days {}
+.schedule__name {
+  @extend %type-display-4;
+}
+.schedule__description {}
+
+.day-schedule {}
+.day-schedule__label {
+  @extend %type-display-4-emph;
+}
+.day-schedule__time-blocks {}
+.day-schedule__time-block {
+  margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  grid-column-gap: 20px;
+  grid-template-areas:
+    "time dets";
+}
+.day-schedule__time-block__time {
+  grid-area: time;
+}
+.day-schedule__time-block__details {
+  grid-area: dets;
+}

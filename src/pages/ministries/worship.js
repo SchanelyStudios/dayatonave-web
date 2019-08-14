@@ -7,8 +7,10 @@ const WorshipPage = () => {
   return (
     <Layout activeNavPath="/ministries">
       <SEO title="Worship Ministry" />
-      <h1>Worship Ministry</h1>
-      <p>Content coming soon!</p>
+      <main className="page">
+        <h1>Worship Ministry</h1>
+        <p>Content coming soon!</p>
+      </main>
     </Layout>
   );
 };

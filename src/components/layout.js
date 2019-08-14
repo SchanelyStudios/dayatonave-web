@@ -32,7 +32,7 @@ const Layout = ({ activeNavPath, children }) => (
           siteTitle={data.site.siteMetadata.title}
           siteSubTitle={data.site.siteMetadata.subtitle}
         />
-        <main className="page">{children}</main>
+        {children}
         <Footer
           siteTitle={data.site.siteMetadata.title}
           siteSubTitle={data.site.siteMetadata.subtitle}

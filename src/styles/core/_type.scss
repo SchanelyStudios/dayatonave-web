@@ -22,7 +22,7 @@
   @include type-setup(display, display-4, display-4, bold);
 }
 
-%type-display-4-emp {
+%type-display-4-emph {
   @include type-setup(display, base, display-4, medium);
   text-transform: uppercase;
 }
@@ -61,6 +61,10 @@ h3:not([class]) {
   @extend %type-display-3;
 }
 
+h4:not([class]) {
+  @extend %type-display-4;
+}
+
 .lead {
   @extend %type-lead;
 }
@@ -71,4 +75,8 @@ li {
 
 p {
   @extend %type-base;
+}
+
+strong, b {
+  font-weight: bold;
 }

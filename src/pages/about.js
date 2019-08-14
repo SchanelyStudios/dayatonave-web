@@ -10,8 +10,10 @@ const AboutPage = () => {
   return (
     <Layout activeNavPath="/about">
       <SEO title={copy.title} />
-      <h1>{copy.title}</h1>
-      {copy.content}
+      <main className="page">
+        <h1>{copy.title}</h1>
+        {copy.content}
+      </main>
     </Layout>
   );
 };

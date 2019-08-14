@@ -7,8 +7,10 @@ const GivingOnlinePage = () => {
   return (
     <Layout activeNavPath="/about">
       <SEO title="About Giving Online" />
-      <h1>About Giving Online</h1>
-      <p>Content coming soon!</p>
+      <main className="page">
+        <h1>About Giving Online</h1>
+        <p>Content coming soon!</p>
+      </main>
     </Layout>
   );
 }
