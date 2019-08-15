@@ -5,6 +5,7 @@ import SEO from "../components/seo"
 
 import ContentService from "../services/content.service";
 
+import Placeholdit from "../components/common/placeholdit";
 import SmartLink from "../components/common/smart-link";
 
 const MediaPage = () => {
@@ -29,7 +30,7 @@ const MediaPage = () => {
                 </SmartLink>
               </div>
               <div className="media-block__preview">
-                <img src="//placehold.it/600x360/a1aeb7/505d68?text=Media" alt="" />
+                <Placeholdit size="600x360" text="Media" />
               </div>
             </div>
           ))}
