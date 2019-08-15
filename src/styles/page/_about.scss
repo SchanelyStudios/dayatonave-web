@@ -1,0 +1,99 @@
+.about-page {}
+
+.about-page__title {
+  text-align: center;
+
+  @extend %type-display-1;
+}
+
+.about-page__intro {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  display: grid;
+  grid-template-columns: 550px 361px;
+  grid-column-gap: 125px;
+}
+
+.about-page__intro__image {
+  > img {
+    display: block;
+    max-width: 100%;
+  }
+}
+
+.about-page__beliefs {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.about-page__beliefs__items {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: flex-start;
+  margin-right: -30px;
+  margin-left: -30px;
+}
+
+.about-page__beliefs__item {
+  padding: 20px;
+  box-sizing: border-box;
+  width: 33%;
+
+  > img {
+    margin-bottom: 10px;
+    max-width: 100%;
+    display: block;
+  }
+}
+
+.about-page__pastoral-team {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.about-page__pastors {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: flex-start;
+  margin-right: -30px;
+  margin-left: -30px;
+}
+
+.pastor {
+  width: 25%;
+  box-sizing: border-box;
+  padding: 30px;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.pastor__mug {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+
+  > img {
+    @include cover-image();
+  }
+}
+
+.pastor__name {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  width: 100%;
+  text-align: center;
+
+  @extend %type-display-4;
+}
+
+.pastor__title {
+  width: 100%;
+  text-align: center;
+
+  @extend %type-small-emph;
+}
