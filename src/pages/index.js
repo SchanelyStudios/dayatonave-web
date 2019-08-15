@@ -5,6 +5,7 @@ import SEO from "../components/seo";
 import YouTube from 'react-youtube';
 
 import SmartLink from "../components/common/smart-link";
+import Placeholdit from "../components/common/placeholdit";
 
 import ContentService from '../services/content.service';
 
@@ -33,7 +34,7 @@ const IndexPage = () => {
         <h1 aria-hidden="true">{copy.title}</h1>
         <div className="home__features">
           <SmartLink>
-            <img src="//placehold.it/1620x1000/?text=Carousel%20FPO" alt="" />
+            <Placeholdit size="1620x1000" text="Carousel FPO" />
           </SmartLink>
           {/* TODO: Add carousel styles and functionality */}
           {/*<ul className="home__feature-list">
@@ -94,7 +95,7 @@ const IndexPage = () => {
           <ul className="home__what-to-expect__grid">
             {copy.what_to_expect.items.map(({ heading, content }, i) => (
               <li key={i}>
-                <img src="https://placehold.it/400x300" alt="" />
+                <Placeholdit size="400x300" text="FPO" />
                 <h4>{heading}</h4>
                 {content}
               </li>

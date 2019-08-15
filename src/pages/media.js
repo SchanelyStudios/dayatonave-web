@@ -3,9 +3,12 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-import ContentService from '../services/content.service';
+import ContentService from "../services/content.service";
 
-const AboutPage = () => {
+import Placeholdit from "../components/common/placeholdit";
+import SmartLink from "../components/common/smart-link";
+
+const MediaPage = () => {
   const copy = ContentService.media;
   return (
     <Layout activeNavPath="/media">
@@ -13,7 +16,7 @@ const AboutPage = () => {
       <main className="page">
         <h2 className="page__heading">{copy.title}</h2>
         <div className="media-blocks">
-          {copy.mediaBlocks.map(({ heading, alias, content }, i) => (
+          {copy.mediaBlocks.map(({ heading, alias, content, url, label }, i) => (
             <div className={`media-block media-block--${alias}`} key={i}>
               <div className="media-block__content">
                 <h2 className="media-block__heading">
@@ -22,12 +25,12 @@ const AboutPage = () => {
                 <p className="media-block__copy">
                   {content}
                 </p>
-                <a className="media-block__button btn btn--inverse" href={"//example.com"}>
-                  Check it out
-                </a>
+                <SmartLink className="media-block__button btn btn--inverse" href={url}>
+                  {label}
+                </SmartLink>
               </div>
               <div className="media-block__preview">
-                <img src="//placehold.it/600x360/a1aeb7/505d68?text=Media" alt="" />
+                <Placeholdit size="600x360" text="Media" />
               </div>
             </div>
           ))}
@@ -37,4 +40,4 @@ const AboutPage = () => {
   )
 }
 
-export default AboutPage
+export default MediaPage;
