@@ -1,14 +1,16 @@
 import React from "react";
 
-const Placeholdit = ({ size, text }) => {
+const Placeholdit = ({ src, size, text, className }) => {
 
-  let src = `//placehold.it/${size}/a1aeb7/505d68`;
-  src += text
-    ? `?text=${encodeURI(text)}`
-    : '';
+  if (!src) {
+    src = `//placehold.it/${size}/a1aeb7/505d68`;
+    src += text
+      ? `?text=${encodeURI(text)}`
+      : '';
+  }
 
   return (
-    <img src={src} alt={text} />
+    <img src={src} alt={text} className={className} />
   );
 };
 

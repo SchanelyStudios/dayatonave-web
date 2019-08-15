@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import Placeholdit from "../components/common/placeholdit";
 
 import ContentService from "../services/content.service";
 
@@ -48,7 +49,7 @@ const MinistryPage = (input) => {
             </div>
           </div>
           <div className="intro-block__figure">
-            <img className="intro-block__image" src={intro.imageURL} alt="" />
+            <Placeholdit className="intro-block__image" size="600x400" text="FPO" />
           </div>
         </div>
         <h3 className="page__section-heading">Our Ministries</h3>
@@ -68,7 +69,7 @@ const MinistryPage = (input) => {
                   </Link>
                 </div>
                 <div className="ministry-block__figure">
-                  <img className="ministry-block__image" src={imageURL} alt="" />
+                  <Placeholdit className="ministry-block__image" size="400x400" text="FPO" />
                 </div>
               </li>
             );
