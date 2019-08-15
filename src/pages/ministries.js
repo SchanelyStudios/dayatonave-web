@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import Placeholdit from "../components/common/placeholdit";
 
 import ContentService from "../services/content.service";
 
@@ -23,6 +24,7 @@ export const query = graphql`
               ministry_name
               short_description
               thumbnail
+              has_followup_page
             }
           }
         }
@@ -48,12 +50,13 @@ const MinistryPage = (input) => {
             </div>
           </div>
           <div className="intro-block__figure">
-            <img className="intro-block__image" src={intro.imageURL} alt="" />
+            <Placeholdit className="intro-block__image" size="600x400" text="FPO" />
           </div>
         </div>
         <h3 className="page__section-heading">Our Ministries</h3>
         <ul className="ministry-blocks">
-          {ministries.map(({ name, intro, path, imageURL }, i) => {
+          {ministries.map(({ name, intro, path, imageURL, hasFollowupPage }, i) => {
+            console.log(hasFollowupPage);
             return (
               <li className="ministry-block" key={i}>
                 <div className="ministry-block__content">
@@ -63,12 +66,14 @@ const MinistryPage = (input) => {
                   <div className="ministry-block__copy">
                     {intro}
                   </div>
-                  <Link className="ministry-block__more-link btn btn--uncentered" to={path}>
-                    Learn More
-                  </Link>
+                  {hasFollowupPage ? (
+                      <Link className="ministry-block__more-link btn btn--uncentered" to={path}>
+                        Learn More
+                      </Link>
+                    ) : ("")}
                 </div>
                 <div className="ministry-block__figure">
-                  <img className="ministry-block__image" src={imageURL} alt="" />
+                  <Placeholdit className="ministry-block__image" size="400x400" text="FPO" />
                 </div>
               </li>
             );

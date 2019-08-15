@@ -80,3 +80,15 @@ p {
 strong, b {
   font-weight: bold;
 }
+
+ul, ol {
+  &:not([class]) {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 30px;
+
+    > li {
+      list-style: disc;
+    }
+  }
+}
