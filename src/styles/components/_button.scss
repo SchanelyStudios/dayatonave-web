@@ -6,16 +6,23 @@
   color: theme-color(gray-4);
   min-width: 200px;
   width: max-content;
+  border: none;
+  outline: none;
 
   &:hover {
     text-decoration: none;
     color: #fff;
+  }
+
+  &:focus {
+    @include focus-box();
   }
 }
 
 .btn,
 button {
   @extend %button;
+  @extend %type-small-emph;
 
   &:not(.btn--uncentered) {
     margin-right: auto;

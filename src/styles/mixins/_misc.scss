@@ -61,6 +61,19 @@
 
 
 ////
+/// Focus box
+///
+/// Instructs an element to fill its container by absolutely positioning it to
+/// span all sides of the box.
+////
+
+@mixin focus-box() {
+  outline: none;
+  box-shadow: 0 0 0 2px theme-color(gray-2), 0 0 0 3px theme-color(gray-1);
+}
+
+
+////
 /// Inline List
 ///
 /// Sets up an inline list such as for tiling elements.

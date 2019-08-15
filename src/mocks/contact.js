@@ -1,7 +1,7 @@
 import React from "react";
 
 export default {
-  title: "Contact",
+  title: "Contact Us",
   content: (
     <>
       <h2>Coming soon!</h2>

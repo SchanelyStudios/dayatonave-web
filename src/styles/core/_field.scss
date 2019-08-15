@@ -1,0 +1,45 @@
+.field {
+  margin-bottom: 20px;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.field__label {
+  margin-bottom: 10px;
+  width: 100%;
+
+  @extend %type-base;
+}
+
+.field__control {
+  width: 100%;
+
+  > input[type="text"],
+  > input[type="email"],
+  > textarea {
+    display: block;
+    width: 100%;
+    padding: 5px;
+    border: 1px solid theme-color(gray-1, wireframe);
+    border-radius: 4px;
+
+    @extend %type-base;
+
+    &:focus {
+      @include focus-box();
+    }
+  }
+
+  > select {
+    width: 100%;
+    height: 30px;
+    border: 1px solid theme-color(gray-1, wireframe);
+    border-radius: 4px;
+
+    @extend %type-base;
+
+    &:focus {
+      @include focus-box();
+    }
+  }
+}

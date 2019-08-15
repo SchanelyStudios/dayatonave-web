@@ -1,0 +1,29 @@
+.contact-page {
+  display: grid;
+  grid-template-columns: 460px 360px;
+  grid-column-gap: 30px;
+  grid-template-areas:
+    "head head"
+    "map  form";
+}
+
+.contact-page__title {
+  margin-bottom: 50px;
+  grid-area: head;
+  text-align: center;
+
+  @extend %type-display-1;
+}
+
+.contact-page__map {
+  grid-area: map;
+
+  > img {
+    display: block;
+    max-width: 100%;
+  }
+}
+
+.contact-page__form {
+  grid-area: form;
+}
