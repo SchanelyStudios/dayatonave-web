@@ -22,7 +22,6 @@ export default {
       alias: "ministries",
       pages: [
         NavigationConfigs.ministries.pages.pastoralTeaching,
-        NavigationConfigs.ministries.pages.worship,
         NavigationConfigs.ministries.pages.lifeGroups,
         NavigationConfigs.ministries.pages.youth,
         NavigationConfigs.ministries.pages.children,

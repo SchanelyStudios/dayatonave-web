@@ -32,7 +32,7 @@ export default {
         path: "/ministries/children",
       },
       lifeGroups: {
-        label: "LifeGroups",
+        label: "Adult Ministries & LifeGroups",
         alias: "ministries-life-groups",
         path: "/ministries/life-groups",
       },
@@ -41,11 +41,11 @@ export default {
         alias: "ministries-pastoral-teaching",
         path: "/ministries/pastoral-teaching",
       },
-      worship: {
-        label: "Worship",
-        alias: "ministries-worship",
-        path: "/ministries/worship",
-      },
+      // worship: {
+      //   label: "Worship",
+      //   alias: "ministries-worship",
+      //   path: "/ministries/worship",
+      // },
       youth: {
         label: "Youth",
         alias: "ministries-youth",

@@ -52,7 +52,7 @@ const IndexPage = () => {
           <YouTube  className="home__intro__video" videoId={copy.videoId} />
           <div className="home__intro__content">
             {copy.introBlock}
-            {copy.graphic}
+            <SmartLink className="btn" path="/about/">Learn more</SmartLink>
           </div>
         </div>
         <div className="home__location-times">

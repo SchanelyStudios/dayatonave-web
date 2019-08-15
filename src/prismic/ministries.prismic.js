@@ -9,6 +9,7 @@ export default (input) => {
       name: RichText.asText(ministry.ministry_name),
       intro: RichText.render(ministry.short_description),
       imageURL: ministry.thumbnail.url,
+      hasFollowupPage: ministry.has_followup_page === "Yes",
       path: `/ministries/${ministry._meta.uid}`,
     });
   });
