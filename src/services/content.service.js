@@ -4,6 +4,7 @@ import calendar from '../mocks/calendar';
 import contact from '../mocks/contact';
 import media from '../mocks/media';
 import MinistriesMocks from '../mocks/ministries';
+import MinistriesChildrenMocks from '../mocks/ministries/children';
 import MinistriesPrismic from '../prismic/ministries.prismic';
 
 export default {
@@ -17,4 +18,5 @@ export default {
       ? MinistriesMocks
       : MinistriesPrismic(input);
   },
+  childrensMinistries: MinistriesChildrenMocks,
 };
