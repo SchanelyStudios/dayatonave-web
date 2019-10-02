@@ -41,11 +41,6 @@ export default {
         alias: "ministries-pastoral-teaching",
         path: "/ministries/pastoral-teaching",
       },
-      // worship: {
-      //   label: "Worship",
-      //   alias: "ministries-worship",
-      //   path: "/ministries/worship",
-      // },
       youth: {
         label: "Youth",
         alias: "ministries-youth",

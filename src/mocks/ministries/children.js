@@ -103,7 +103,7 @@ export default {
         </li>
         <li>
           <h4>Facebook</h4>
-          <p>Subscribe to <a href="#">our Facebook page</a></p>
+          <p>Subscribe to <a href="https://www.facebook.com/Dayton-Avenue-Baptist-Church-228381720531381/">our Facebook page</a></p>
         </li>
       </ul>
     </>
