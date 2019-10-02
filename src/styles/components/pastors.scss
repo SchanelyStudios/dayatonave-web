@@ -1,0 +1,36 @@
+.pastor {
+  width: 25%;
+  box-sizing: border-box;
+  padding: 30px;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.pastor__mug {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+
+  > img {
+    @include cover-image();
+  }
+}
+
+.pastor__name {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  width: 100%;
+  text-align: center;
+
+  @extend %type-display-4;
+}
+
+.pastor__title {
+  width: 100%;
+  text-align: center;
+
+  @extend %type-small-emph;
+}

@@ -1,0 +1,21 @@
+.faqs {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+}
+
+.faq {
+  margin-bottom: 30px;
+
+  > h4 {
+    margin-bottom: 10px;
+  }
+
+  &:not(.faq--wide) {
+    width: calc((100% / 2) - 40px);
+  }
+}
+
+.faq--wide {
+  width: 100%;
+}
