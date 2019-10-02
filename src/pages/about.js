@@ -47,6 +47,17 @@ const AboutPage = () => {
             ))}
           </ul>
         </div>
+        <div className="about-page__faqs">
+          <h3>{copy.faqs.heading}</h3>
+          <ul className="faqs">
+            {copy.faqs.items.map(({ question, answer }, i) => (
+              <li key={i} className="faq">
+                <h4>{question}</h4>
+                {answer}
+              </li>
+            ))}
+          </ul>
+        </div>
       </main>
     </Layout>
   );
