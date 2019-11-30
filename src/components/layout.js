@@ -19,8 +19,7 @@ const Layout = ({ activeNavPath, children }) => (
       query SiteTitleQuery {
         site {
           siteMetadata {
-            title,
-            subtitle
+            title
           }
         }
       }
@@ -30,12 +29,10 @@ const Layout = ({ activeNavPath, children }) => (
         <Header
           activeItem={activeNavPath}
           siteTitle={data.site.siteMetadata.title}
-          siteSubTitle={data.site.siteMetadata.subtitle}
         />
         {children}
         <Footer
           siteTitle={data.site.siteMetadata.title}
-          siteSubTitle={data.site.siteMetadata.subtitle}
         />
       </>
     )}

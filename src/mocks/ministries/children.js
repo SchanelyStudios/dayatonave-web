@@ -103,7 +103,7 @@ export default {
         </li>
         <li>
           <h4>Facebook</h4>
-          <p>Subscribe to <a href="#">our Facebook page</a></p>
+          <p>Subscribe to <a href="#facebook">our Facebook page</a></p>
         </li>
       </ul>
     </>

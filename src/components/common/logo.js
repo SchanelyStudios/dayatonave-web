@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "gatsby";
 
 import ClassNames from "classnames";
 
@@ -6,7 +7,7 @@ import LogoFull from "./logo/logo-full";
 import LogoInline from "./logo/logo-inline";
 import LogoWordmark from "./logo/logo-wordmark";
 
-const Logo = ({ type, color }) => {
+const Logo = ({ type, color, content }) => {
 
   let classNames = ClassNames(
     "logo",
@@ -31,8 +32,10 @@ const Logo = ({ type, color }) => {
 
   return (
     <div className={classNames}>
-      {logo}
-      <h1 className="logo__text">Dayton Avenue Baptist Church</h1>
+      <Link to="/">
+        {logo}
+      </Link>
+      <h1 className="logo__text">{content}</h1>
     </div>
   );
 }
