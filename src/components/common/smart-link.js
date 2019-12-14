@@ -12,7 +12,7 @@ const SmartLink = ({ path, href, children, target, title, className }) => {
 
   if (href) {
     return (
-      <a href={href} target={target} title={title} className={className}>
+      <a href={href} target={target} title={title} className={className} rel="noopener noreferrer">
         {children}
       </a>
     );

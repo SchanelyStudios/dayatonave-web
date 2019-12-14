@@ -7,7 +7,7 @@ import SectionHeader from "../components/common/section-header";
 import ContentService from "../services/content.service";
 
 import Placeholdit from "../components/common/placeholdit";
-import SmartLink from "../components/common/smart-link";
+import Button from "../components/common/button";
 
 const MediaPage = () => {
   const copy = ContentService.media;
@@ -26,9 +26,9 @@ const MediaPage = () => {
                 <p className="media-block__copy">
                   {content}
                 </p>
-                <SmartLink className="media-block__button btn btn--inverse" href={url}>
+                <Button href={url}>
                   {label}
-                </SmartLink>
+                </Button>
               </div>
               <div className="media-block__preview">
                 <Placeholdit size="600x360" text="Media" />

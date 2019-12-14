@@ -5,6 +5,7 @@ import SEO from "../components/seo";
 import YouTube from 'react-youtube';
 
 import SmartLink from "../components/common/smart-link";
+import Button from "../components/common/button";
 import Placeholdit from "../components/common/placeholdit";
 import SectionHeader from "../components/common/section-header";
 
@@ -53,7 +54,7 @@ const IndexPage = () => {
           <YouTube  className="home__intro__video" videoId={copy.videoId} />
           <div className="home__intro__content">
             {copy.introBlock}
-            <SmartLink className="btn" path="/about/">Learn more</SmartLink>
+            <Button path="/about/">Learn more</Button>
           </div>
         </div>
         <div className="home__location-times">
@@ -102,7 +103,7 @@ const IndexPage = () => {
               </li>
             ))}
           </ul>
-          <SmartLink className="btn" path="/ministries">Our Ministries</SmartLink>
+          <Button path="/ministries">Our Ministries</Button>
         </div>
       </main>
     </Layout>
