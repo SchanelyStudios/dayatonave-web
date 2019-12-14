@@ -7,7 +7,7 @@ import LogoFull from "./logo/logo-full";
 import LogoInline from "./logo/logo-inline";
 import LogoWordmark from "./logo/logo-wordmark";
 
-const Logo = ({ type, color, content }) => {
+const Logo = ({ type, color, children }) => {
 
   let classNames = ClassNames(
     "logo",
@@ -35,7 +35,7 @@ const Logo = ({ type, color, content }) => {
       <Link to="/">
         {logo}
       </Link>
-      <h1 className="logo__text">{content}</h1>
+      <h1 className="logo__text">{children}</h1>
     </div>
   );
 }
