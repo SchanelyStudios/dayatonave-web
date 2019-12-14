@@ -4,6 +4,7 @@ import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Placeholdit from "../components/common/placeholdit";
+import SectionHeader from "../components/common/section-header";
 
 import ContentService from "../services/content.service";
 
@@ -40,11 +41,9 @@ const MinistryPage = (input) => {
     <Layout activeNavPath="/ministries">
       <SEO title={title} />
       <main className="page">
+        <SectionHeader>{intro.heading}</SectionHeader>
         <div className="intro-block">
           <div className="intro-block__content">
-            <h3 className="intro-block__heading">
-              {intro.heading}
-            </h3>
             <div className="intro-block__copy">
               {intro.copy}
             </div>

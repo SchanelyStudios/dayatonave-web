@@ -59,6 +59,7 @@ const Header = ({ siteTitle, activeItem }) => (
         ))}
   		</ul>
   	</nav>
+    {/* TODO: set up interactions here on mobile nav icon */}
   	<button className="btn--clean masthead__menu-icon">
   		<i className="icon icon--menu-bars"></i>
   	</button>

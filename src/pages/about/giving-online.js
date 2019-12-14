@@ -2,13 +2,14 @@ import React from "react";
 
 import Layout from "../../components/layout";
 import SEO from "../../components/seo";
+import SectionHeader from "../../components/common/section-header";
 
 const GivingOnlinePage = () => {
   return (
     <Layout activeNavPath="/about">
       <SEO title="About Giving Online" />
       <main className="page">
-        <h1>About Giving Online</h1>
+        <SectionHeader>About Giving Online</SectionHeader>
         <p>Content coming soon!</p>
       </main>
     </Layout>

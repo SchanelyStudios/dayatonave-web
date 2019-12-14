@@ -3,6 +3,7 @@ import React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Placeholdit from "../components/common/placeholdit";
+import SectionHeader from "../components/common/section-header";
 
 import ContentService from '../services/content.service';
 
@@ -12,7 +13,7 @@ const AboutPage = () => {
     <Layout activeNavPath="/about">
       <SEO title={copy.title} />
       <main className="page about-page">
-        <h2 className="about-page__title">{copy.title}</h2>
+        <SectionHeader>{copy.title}</SectionHeader>
         <div className="about-page__intro">
           <div className="about-page__intro__content">
             {copy.intro}

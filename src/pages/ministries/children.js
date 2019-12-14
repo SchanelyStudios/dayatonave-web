@@ -5,6 +5,7 @@ import ContentService from "../../services/content.service";
 import Layout from "../../components/layout";
 import SEO from "../../components/seo";
 import Placeholdit from "../../components/common/placeholdit";
+import SectionHeader from "../../components/common/section-header";
 
 const ChildrensMinistriesPage = () => {
   const { title, overview, values, details, current_schedule, programs, visitors, resources } = ContentService.childrensMinistries;
@@ -13,7 +14,7 @@ const ChildrensMinistriesPage = () => {
     <Layout activeNavPath="/ministries">
       <SEO title="Children's Ministries" />
       <main className="page children-page">
-        <h2>{title}</h2>
+        <SectionHeader>{title}</SectionHeader>
         <div className="children__intro">
           <div className="children__intro__content">
             <p className="lead">

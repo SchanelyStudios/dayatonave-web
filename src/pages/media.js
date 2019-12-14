@@ -1,7 +1,8 @@
-import React from "react"
+import React from "react";
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from "../components/layout";
+import SEO from "../components/seo";
+import SectionHeader from "../components/common/section-header";
 
 import ContentService from "../services/content.service";
 
@@ -14,7 +15,7 @@ const MediaPage = () => {
     <Layout activeNavPath="/media">
       <SEO title={copy.title} />
       <main className="page">
-        <h2 className="page__heading">{copy.title}</h2>
+        <SectionHeader>{copy.title}</SectionHeader>
         <div className="media-blocks">
           {copy.mediaBlocks.map(({ heading, alias, content, url, label }, i) => (
             <div className={`media-block media-block--${alias}`} key={i}>
@@ -38,6 +39,6 @@ const MediaPage = () => {
       </main>
     </Layout>
   )
-}
+};
 
 export default MediaPage;

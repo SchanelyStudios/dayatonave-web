@@ -6,6 +6,7 @@ import YouTube from 'react-youtube';
 
 import SmartLink from "../components/common/smart-link";
 import Placeholdit from "../components/common/placeholdit";
+import SectionHeader from "../components/common/section-header";
 
 import ContentService from '../services/content.service';
 
@@ -91,7 +92,7 @@ const IndexPage = () => {
           </div>
         </div>
         <div className="home__what-to-expect">
-          <h3>{copy.what_to_expect.title}</h3>
+          <SectionHeader level="2">{copy.what_to_expect.title}</SectionHeader>
           <ul className="home__what-to-expect__grid">
             {copy.what_to_expect.items.map(({ heading, content }, i) => (
               <li key={i}>

@@ -2,6 +2,7 @@ import React from "react";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import SectionHeader from "../components/common/section-header";
 
 import ContentService from '../services/content.service';
 
@@ -11,7 +12,7 @@ const AboutPage = () => {
     <Layout activeNavPath="/calendar">
       <SEO title={copy.title} />
       <main className="page">
-        <h1>{copy.title}</h1>
+        <SectionHeader>{copy.title}</SectionHeader>
         {copy.content}
       </main>
     </Layout>
