@@ -1,8 +1,8 @@
 import React from "react";
 
 import Layout from "../../components/layout";
-import SEO from "../../components/seo";
 import SectionHeader from "../../components/common/section-header";
+import SEO from "../../components/seo";
 
 const GivingOnlinePage = () => {
   return (

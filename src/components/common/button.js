@@ -19,10 +19,13 @@ class Button extends React.Component {
   }
 
   render() {
-    let classes = [{
-      "btn--flat": this.props.flat,
-      [`btn--${this.props.color}`]: this.props.color,
-    }];
+    let classes = [
+      this.props.className,
+      {
+        "btn--flat": this.props.flat,
+        [`btn--${this.props.color}`]: this.props.color,
+      }
+    ];
 
     console.log(classes);
 

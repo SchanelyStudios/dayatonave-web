@@ -1,10 +1,10 @@
 import React from "react";
 
-import Layout from "../components/layout";
-import SEO from "../components/seo";
-import SectionHeader from "../components/common/section-header";
-
 import ContentService from '../services/content.service';
+
+import Layout from "../components/layout";
+import SectionHeader from "../components/common/section-header";
+import SEO from "../components/seo";
 
 const AboutPage = () => {
   const copy = ContentService.calendar;

@@ -1,13 +1,13 @@
 import React from "react";
 
-import Layout from "../components/layout";
-import SEO from "../components/seo";
-import SectionHeader from "../components/common/section-header";
-
 import ContentService from "../services/content.service";
 
+import Layout from "../components/layout";
 import Placeholdit from "../components/common/placeholdit";
-import Button from "../components/common/button";
+import SectionHeader from "../components/common/section-header";
+import SEO from "../components/seo";
+import Spread from "../components/common/spread";
+import SpreadCTA from "../components/common/spread/cta";
 
 const MediaPage = () => {
   const copy = ContentService.media;
@@ -18,22 +18,20 @@ const MediaPage = () => {
         <SectionHeader>{copy.title}</SectionHeader>
         <div className="media-blocks">
           {copy.mediaBlocks.map(({ heading, alias, content, url, label }, i) => (
-            <div className={`media-block media-block--${alias}`} key={i}>
-              <div className="media-block__content">
-                <h2 className="media-block__heading">
-                  {heading}
-                </h2>
-                <p className="media-block__copy">
-                  {content}
-                </p>
-                <Button href={url}>
-                  {label}
-                </Button>
-              </div>
-              <div className="media-block__preview">
-                <Placeholdit size="600x360" text="Media" />
-              </div>
-            </div>
+            <Spread
+              className={`media-block media-block--${alias}`}
+              key={i}
+              flipped={i % 2}
+              figure={<Placeholdit size="600x360" text="Media" />}
+              cta={<SpreadCTA href={url}>{label}</SpreadCTA>}
+            >
+              <h3 className="type-display-2">
+                {heading}
+              </h3>
+              <p className="media-block__copy">
+                {content}
+              </p>
+            </Spread>
           ))}
         </div>
       </main>

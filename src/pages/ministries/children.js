@@ -3,9 +3,10 @@ import React from "react";
 import ContentService from "../../services/content.service";
 
 import Layout from "../../components/layout";
-import SEO from "../../components/seo";
 import Placeholdit from "../../components/common/placeholdit";
 import SectionHeader from "../../components/common/section-header";
+import SEO from "../../components/seo";
+import Spread from "../../components/common/spread";
 
 const ChildrensMinistriesPage = () => {
   const { title, overview, values, details, current_schedule, programs, visitors, resources } = ContentService.childrensMinistries;
@@ -15,17 +16,12 @@ const ChildrensMinistriesPage = () => {
       <SEO title="Children's Ministries" />
       <main className="page children-page">
         <SectionHeader>{title}</SectionHeader>
-        <div className="children__intro">
-          <div className="children__intro__content">
-            <p className="lead">
-              {overview}
-            </p>
-            {values}
-          </div>
-          <div className="children__intro__image">
-            <Placeholdit size="600x400" text="FPO" />
-          </div>
-        </div>
+        <Spread className="children__intro" flipped={true} figure={<Placeholdit size="600x400" text="FPO" />}>
+          <p className="lead">
+            {overview}
+          </p>
+          {values}
+        </Spread>
         <div className="children__details">
           {details}
         </div>

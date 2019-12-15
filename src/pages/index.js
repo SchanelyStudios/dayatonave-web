@@ -1,15 +1,16 @@
 import React from "react";
-
-import Layout from "../components/layout";
-import SEO from "../components/seo";
 import YouTube from 'react-youtube';
 
-import SmartLink from "../components/common/smart-link";
+import ContentService from '../services/content.service';
+
 import Button from "../components/common/button";
+import Layout from "../components/layout";
 import Placeholdit from "../components/common/placeholdit";
 import SectionHeader from "../components/common/section-header";
-
-import ContentService from '../services/content.service';
+import SEO from "../components/seo";
+import SmartLink from "../components/common/smart-link";
+import Spread from "../components/common/spread";
+import SpreadCTA from "../components/common/spread/cta";
 
 // export const query = graphql`
 //   query{
@@ -50,13 +51,17 @@ const IndexPage = () => {
             ))}
           </ul>*/}
         </div>
-        <div className="home__intro">
-          <YouTube  className="home__intro__video" videoId={copy.videoId} />
-          <div className="home__intro__content">
-            {copy.introBlock}
-            <Button path="/about/">Learn more</Button>
-          </div>
-        </div>
+        <Spread
+          className="home__intro"
+          figure={
+            <YouTube className="home__intro__video" videoId={copy.videoId} />
+          }
+          cta={
+            <SpreadCTA path="/about/">Learn more</SpreadCTA>
+          }
+        >
+          {copy.introBlock}
+        </Spread>
         <div className="home__location-times">
           <div className="home__location-times__map">
             <iframe

@@ -5,6 +5,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Placeholdit from "../components/common/placeholdit";
 import SectionHeader from "../components/common/section-header";
+import Spread from "../components/common/spread";
 
 import ContentService from "../services/content.service";
 
@@ -42,17 +43,10 @@ const MinistryPage = (input) => {
       <SEO title={title} />
       <main className="page">
         <SectionHeader>{intro.heading}</SectionHeader>
-        <div className="intro-block">
-          <div className="intro-block__content">
-            <div className="intro-block__copy">
-              {intro.copy}
-            </div>
-          </div>
-          <div className="intro-block__figure">
-            <Placeholdit className="intro-block__image" size="600x400" text="FPO" />
-          </div>
-        </div>
-        <h3 className="page__section-heading">Our Ministries</h3>
+        <Spread figure={<Placeholdit className="intro-block__image" size="600x400" text="FPO" />}>
+          {intro.copy}
+        </Spread>
+        <SectionHeader level="2">Our Ministries</SectionHeader>
         <ul className="ministry-blocks">
           {ministries.map(({ name, intro, path, imageURL, hasFollowupPage }, i) => {
             console.log(hasFollowupPage);

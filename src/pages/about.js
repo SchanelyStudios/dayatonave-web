@@ -1,11 +1,12 @@
 import React from "react";
 
+import ContentService from '../services/content.service';
+
 import Layout from "../components/layout";
-import SEO from "../components/seo";
 import Placeholdit from "../components/common/placeholdit";
 import SectionHeader from "../components/common/section-header";
-
-import ContentService from '../services/content.service';
+import SEO from "../components/seo";
+import Spread from "../components/common/spread";
 
 const AboutPage = () => {
   const copy = ContentService.about;
@@ -14,16 +15,13 @@ const AboutPage = () => {
       <SEO title={copy.title} />
       <main className="page about-page">
         <SectionHeader>{copy.title}</SectionHeader>
-        <div className="about-page__intro">
-          <div className="about-page__intro__content">
-            {copy.intro}
-          </div>
-          <div className="about-page__intro__image">
-            <Placeholdit size="600x400" text="FPO" />
-          </div>
-        </div>
+
+        <Spread className="about-page__intro" figure={<Placeholdit size="600x400" text="FPO" />}>
+          {copy.intro}
+        </Spread>
+
         <div className="about-page__beliefs">
-          <h3>{copy.beliefs.heading}</h3>
+          <SectionHeader level="2">{copy.beliefs.heading}</SectionHeader>
           <ul className="about-page__beliefs__items">
             {copy.beliefs.items.map(({ label, content }, i) => (
               <li key={i} className="about-page__beliefs__item">
@@ -35,7 +33,7 @@ const AboutPage = () => {
           </ul>
         </div>
         <div className="about-page__pastoral-team">
-          <h3>{copy.pastoral_team.heading}</h3>
+          <SectionHeader level="2">{copy.pastoral_team.heading}</SectionHeader>
           <ul className="about-page__pastors">
             {copy.pastoral_team.pastors.map(({ name, title }, i) => (
               <li key={i} className="pastor">
