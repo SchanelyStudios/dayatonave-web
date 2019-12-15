@@ -2,6 +2,7 @@ import React from "react";
 
 import ContentService from "../../services/content.service";
 
+import Blob from "../../components/common/blob";
 import Layout from "../../components/layout";
 import Placeholdit from "../../components/common/placeholdit";
 import SectionHeader from "../../components/common/section-header";
@@ -22,9 +23,9 @@ const ChildrensMinistriesPage = () => {
           </p>
           {values}
         </Spread>
-        <div className="children__details">
+        <Blob className="children__details">
           {details}
-        </div>
+        </Blob>
         <div className="children__visitors-schedule">
           <div className="children__visitors">
             {visitors}
@@ -69,9 +70,9 @@ const ChildrensMinistriesPage = () => {
             ))}
           </ul>
         </div>
-        <div className="children__resources">
+        <Blob className="children__resources">
           {resources}
-        </div>
+        </Blob>
       </main>
     </Layout>
   );

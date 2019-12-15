@@ -2,6 +2,7 @@ import React from "react";
 
 import ContentService from '../services/content.service';
 
+import Blob from "../components/common/blob";
 import Layout from "../components/layout";
 import SectionHeader from "../components/common/section-header";
 import SEO from "../components/seo";
@@ -13,7 +14,9 @@ const AboutPage = () => {
       <SEO title={copy.title} />
       <main className="page">
         <SectionHeader>{copy.title}</SectionHeader>
-        {copy.content}
+        <Blob>
+          {copy.content}
+        </Blob>
       </main>
     </Layout>
   );

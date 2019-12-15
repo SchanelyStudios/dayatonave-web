@@ -7,7 +7,6 @@ import Placeholdit from "../components/common/placeholdit";
 import SectionHeader from "../components/common/section-header";
 import SEO from "../components/seo";
 import Spread from "../components/common/spread";
-import SpreadCTA from "../components/common/spread/cta";
 
 const AboutPage = () => {
   const copy = ContentService.contact;
