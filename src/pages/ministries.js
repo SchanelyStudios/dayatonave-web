@@ -1,6 +1,8 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 
+import Flier from "../components/common/flier";
+import FlierCTA from "../components/common/flier/cta";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Placeholdit from "../components/common/placeholdit";
@@ -47,31 +49,25 @@ const MinistryPage = (input) => {
           {intro.copy}
         </Spread>
         <SectionHeader level="2">Our Ministries</SectionHeader>
-        <ul className="ministry-blocks">
-          {ministries.map(({ name, intro, path, imageURL, hasFollowupPage }, i) => {
-            console.log(hasFollowupPage);
-            return (
-              <li className="ministry-block" key={i}>
-                <div className="ministry-block__content">
-                  <h4 className="ministry-block__heading">
-                    {name}
-                  </h4>
-                  <div className="ministry-block__copy">
-                    {intro}
-                  </div>
-                  {hasFollowupPage ? (
-                      <Link className="ministry-block__more-link btn btn--uncentered" to={path}>
-                        Learn More
-                      </Link>
-                    ) : ("")}
-                </div>
-                <div className="ministry-block__figure">
-                  <Placeholdit className="ministry-block__image" size="400x400" text="FPO" />
-                </div>
-              </li>
-            );
-          })}
-        </ul>
+        <div className="ministry-blocks">
+          {ministries.map(({ name, intro, path, imageURL, hasFollowupPage }, i) => (
+            <Flier
+              className="ministry-block"
+              key={i}
+              cta={hasFollowupPage ? (
+                <FlierCTA path={path}>
+                  Learn More
+                </FlierCTA>
+              ) : ("")}
+              figure={<Placeholdit className="ministry-block__image" size="400x400" text="FPO" />}
+            >
+              <h4 className="type-display-3">
+                {name}
+              </h4>
+              {intro}
+            </Flier>
+          ))}
+        </div>
       </main>
     </Layout>
   );

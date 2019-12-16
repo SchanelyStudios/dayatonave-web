@@ -3,13 +3,15 @@ import React from "react";
 export default {
   title: "Welcome to Dayton Avenue!",
   videoId: "Y-NTQDHWB2M",
-  introBlock: (
-    <>
-      <h2>Welcome to Dayton Avenue!</h2>
-      <p className="lead">Dayton Avenue is a genuine church family located in Xenia, Ohio.</p>
-      <p>Like other churches in our community we have many programs and ministries. But if you’re looking for more than just programs—if you’re looking for a church home and a church family—you’ll find exactly that at Dayton Avenue.</p>
-    </>
-  ),
+  intro: {
+    title: "Welcome to Dayton Avenue!",
+    block: (
+      <>
+        <p className="lead">Dayton Avenue is a genuine church family located in Xenia, Ohio.</p>
+        <p>Like other churches in our community we have many programs and ministries. But if you’re looking for more than just programs—if you’re looking for a church home and a church family—you’ll find exactly that at Dayton Avenue.</p>
+      </>
+    ),
+  },
   graphic: (
     <img src="#" alt="" />
   ),

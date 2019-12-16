@@ -11,6 +11,8 @@ import SEO from "../components/seo";
 import SmartLink from "../components/common/smart-link";
 import Spread from "../components/common/spread";
 import SpreadCTA from "../components/common/spread/cta";
+import Tile from "../components/common/tile";
+import TileContainer from "../components/common/tile/container";
 
 // export const query = graphql`
 //   query{
@@ -35,6 +37,7 @@ const IndexPage = () => {
       <SEO title={copy.title} />
       <main className="page page--full-bleed">
         <h1 aria-hidden="true">{copy.title}</h1>
+
         <div className="home__features">
           <SmartLink>
             <Placeholdit size="1620x1000" text="Carousel FPO" />
@@ -51,6 +54,9 @@ const IndexPage = () => {
             ))}
           </ul>*/}
         </div>
+
+        <SectionHeader level="2">{copy.intro.title}</SectionHeader>
+
         <Spread
           className="home__intro"
           figure={
@@ -60,7 +66,7 @@ const IndexPage = () => {
             <SpreadCTA path="/about/">Learn more</SpreadCTA>
           }
         >
-          {copy.introBlock}
+          {copy.intro.block}
         </Spread>
         <div className="home__location-times">
           <div className="home__location-times__map">
@@ -97,19 +103,22 @@ const IndexPage = () => {
             </ul>
           </div>
         </div>
-        <div className="home__what-to-expect">
-          <SectionHeader level="2">{copy.what_to_expect.title}</SectionHeader>
-          <ul className="home__what-to-expect__grid">
-            {copy.what_to_expect.items.map(({ heading, content }, i) => (
-              <li key={i}>
-                <Placeholdit size="400x300" text="FPO" />
-                <h4>{heading}</h4>
-                {content}
-              </li>
-            ))}
-          </ul>
-          <Button path="/ministries">Our Ministries</Button>
-        </div>
+
+        <SectionHeader level="2">{copy.what_to_expect.title}</SectionHeader>
+        <TileContainer className="home__what-to-expect">
+          {copy.what_to_expect.items.map(({ heading, content }, i) => (
+            <Tile
+              key={i}
+              title={heading}
+              figure={<Placeholdit size="400x300" text="FPO" />}
+            >
+              {content}
+            </Tile>
+          ))}
+        </TileContainer>
+
+        <Button className="home__ministries-cta" path="/ministries">Our Ministries</Button>
+
       </main>
     </Layout>
   );

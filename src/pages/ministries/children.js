@@ -3,6 +3,7 @@ import React from "react";
 import ContentService from "../../services/content.service";
 
 import Blob from "../../components/common/blob";
+import Flier from "../../components/common/flier";
 import Layout from "../../components/layout";
 import Placeholdit from "../../components/common/placeholdit";
 import SectionHeader from "../../components/common/section-header";
@@ -27,9 +28,9 @@ const ChildrensMinistriesPage = () => {
           {details}
         </Blob>
         <div className="children__visitors-schedule">
-          <div className="children__visitors">
+          <Blob className="children__visitors">
             {visitors}
-          </div>
+          </Blob>
           <div className="children__schedule schedule">
             <h3 className="schedule__name">{current_schedule.name}</h3>
             <div className="schedule__description">
@@ -55,20 +56,19 @@ const ChildrensMinistriesPage = () => {
           </div>
         </div>
         <div className="children__programs">
-          <h3>Programs</h3>
-          <ul className="ministry-blocks">
+          <SectionHeader>Programs</SectionHeader>
+          <div className="ministry-blocks">
             {programs.map(({ title, description }, i) => (
-              <li key={i} className="ministry-block">
-                <div className="ministry-block__figure">
-                  <Placeholdit className="ministry-block__image" size="400x300" text="FPO" />
-                </div>
-                <div className="ministry-block__content">
-                  <h4 className="ministry-block__heading">{title}</h4>
-                  <p className="ministry-block__copy">{description}</p>
-                </div>
-              </li>
+              <Flier
+                key={i}
+                className="ministry-block"
+                figure={<Placeholdit className="ministry-block__image" size="400x300" text="FPO" />}
+              >
+                <h4>{title}</h4>
+                <p>{description}</p>
+              </Flier>
             ))}
-          </ul>
+          </div>
         </div>
         <Blob className="children__resources">
           {resources}
