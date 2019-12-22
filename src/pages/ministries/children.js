@@ -4,6 +4,7 @@ import ContentService from "../../services/content.service";
 
 import Blob from "../../components/common/blob";
 import Flier from "../../components/common/flier";
+import FlierContainer from "../../components/common/flier/container";
 import Layout from "../../components/layout";
 import Placeholdit from "../../components/common/placeholdit";
 import SectionHeader from "../../components/common/section-header";
@@ -57,7 +58,7 @@ const ChildrensMinistriesPage = () => {
         </div>
         <div className="children__programs">
           <SectionHeader>Programs</SectionHeader>
-          <div className="ministry-blocks">
+          <FlierContainer className="ministry-blocks">
             {programs.map(({ title, description }, i) => (
               <Flier
                 key={i}
@@ -68,7 +69,7 @@ const ChildrensMinistriesPage = () => {
                 <p>{description}</p>
               </Flier>
             ))}
-          </div>
+          </FlierContainer>
         </div>
         <Blob className="children__resources">
           {resources}

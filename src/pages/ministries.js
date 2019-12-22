@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 
 import Flier from "../components/common/flier";
+import FlierContainer from "../components/common/flier/container";
 import FlierCTA from "../components/common/flier/cta";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -49,7 +50,7 @@ const MinistryPage = (input) => {
           {intro.copy}
         </Spread>
         <SectionHeader level="2">Our Ministries</SectionHeader>
-        <div className="ministry-blocks">
+        <FlierContainer className="ministry-blocks">
           {ministries.map(({ name, intro, path, imageURL, hasFollowupPage }, i) => (
             <Flier
               className="ministry-block"
@@ -67,7 +68,7 @@ const MinistryPage = (input) => {
               {intro}
             </Flier>
           ))}
-        </div>
+        </FlierContainer>
       </main>
     </Layout>
   );
