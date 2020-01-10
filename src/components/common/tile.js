@@ -2,7 +2,10 @@ import React from "react";
 
 import ClassNames from "classnames";
 
-const Tile = ({ children, className, title, subtitle, type, figure }) => {
+import CTA from "./cta";
+import Figure from "./figure";
+
+const Tile = ({ children, className, title, subtitle, type, figure, cta }) => {
   let classNames = ClassNames(
     "tile",
     className,
@@ -11,28 +14,33 @@ const Tile = ({ children, className, title, subtitle, type, figure }) => {
     }
   );
 
+  let figureType = type && type === "illustration"
+    ? "svg"
+    : null;
+
   return (
     <li className={classNames}>
       {(figure
-        ? (
-          <div className="tile__figure">
-            {figure}
-          </div>
-        ) : ""
+        ? <Figure className="tile__figure" alt={figure.alt} src={figure.src} type={figureType} />
+        : null
       )}
       <h4 className="tile__name">
         {title}
       </h4>
-      {(subtitle
+      {(subtitle && type === "facehole"
         ? (
-          <p class="tile__title">
+          <p className="tile__title">
             {subtitle}
           </p>
-        ) : ""
+        ) : null
       )}
       <div className="tile__copy">
         {children}
       </div>
+      {(cta
+        ? <CTA className="tile__cta" label={cta.label} action={cta}  />
+        : null
+      )}
     </li>
   )
 };

@@ -3,7 +3,6 @@ import { graphql } from "gatsby";
 
 import Flier from "../components/common/flier";
 import FlierContainer from "../components/common/flier/container";
-import FlierCTA from "../components/common/flier/cta";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Placeholdit from "../components/common/placeholdit";
@@ -13,7 +12,7 @@ import Spread from "../components/common/spread";
 import ContentService from "../services/content.service";
 
 export const query = graphql`
-  query{
+  query {
     prismic {
       ministry_page(uid:"ministries", lang:"en-us") {
         page_title
@@ -55,12 +54,11 @@ const MinistryPage = (input) => {
             <Flier
               className="ministry-block"
               key={i}
-              cta={hasFollowupPage ? (
-                <FlierCTA path={path}>
-                  Learn More
-                </FlierCTA>
-              ) : ("")}
-              figure={<Placeholdit className="ministry-block__image" size="400x400" text="FPO" />}
+              cta={hasFollowupPage ? {
+                path,
+                label: "Learn more"
+              } : null}
+              figure={null}
             >
               <h4 className="type-display-3">
                 {name}

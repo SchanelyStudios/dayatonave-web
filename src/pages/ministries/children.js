@@ -7,6 +7,7 @@ import Flier from "../../components/common/flier";
 import FlierContainer from "../../components/common/flier/container";
 import Layout from "../../components/layout";
 import Placeholdit from "../../components/common/placeholdit";
+import Schedule from "../../components/common/schedule";
 import SectionHeader from "../../components/common/section-header";
 import SEO from "../../components/seo";
 import Spread from "../../components/common/spread";
@@ -25,39 +26,30 @@ const ChildrensMinistriesPage = () => {
           </p>
           {values}
         </Spread>
+
         <Blob className="children__details">
           {details}
         </Blob>
+
         <div className="children__visitors-schedule">
-          <Blob className="children__visitors">
-            {visitors}
+          <Blob className="children__visitors" heading={visitors.title}>
+            {visitors.content}
           </Blob>
-          <div className="children__schedule schedule">
-            <h3 className="schedule__name">{current_schedule.name}</h3>
+          <div className="children__schedule">
+            <SectionHeader level={2}>{current_schedule.name}</SectionHeader>
             <div className="schedule__description">
               <p>{current_schedule.description}</p>
             </div>
-            <ul className="schedule__days">
-              {current_schedule.days.map(({ label, blocks }, i) => (
-                <li key={i} className="schedule__day day-schedule">
-                  <h4 className="day-schedule__label">{label}</h4>
-                  <ul className="day-schedule__time-blocks">
-                    {blocks.map(({ time, details }, j) => (
-                      <li key={j} className="day-schedule__time-block">
-                        <h5 className="day-schedule__time-block__time">{time}</h5>
-                        <div className="day-schedule__time-block__details">
-                          {details}
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </li>
+            <div className="schedule__days">
+              {current_schedule.days.map(({ label, events }, i) => (
+                <Schedule key={i} label={label} events={events} />
               ))}
-            </ul>
+            </div>
           </div>
         </div>
+
         <div className="children__programs">
-          <SectionHeader>Programs</SectionHeader>
+          <SectionHeader level={2}>Programs</SectionHeader>
           <FlierContainer className="ministry-blocks">
             {programs.map(({ title, description }, i) => (
               <Flier
@@ -71,8 +63,9 @@ const ChildrensMinistriesPage = () => {
             ))}
           </FlierContainer>
         </div>
-        <Blob className="children__resources">
-          {resources}
+
+        <Blob className="children__resources" heading={resources.title}>
+          {resources.content}
         </Blob>
       </main>
     </Layout>

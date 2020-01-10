@@ -43,7 +43,6 @@ const AboutPage = () => {
               type="facehole"
               title={name}
               subtitle={title}
-              figure={<Placeholdit size="200x200" text="Mug" />}
             />
           ))}
         </TileContainer>

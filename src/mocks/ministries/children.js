@@ -23,30 +23,33 @@ export default {
       </p>
     </>
   ),
-  visitors: (
-    <>
-      <h3>First Time Guests</h3>
-      <p>Welcome! We’re happy that you’re going to visit! Please stop by the Children’s Welcome Desk in the middle of the building to check your child in.</p>
-      <ul>
-        <li>Complete an information card, and then we’ll print two tags for you: One tag will print with your child’s name, any allergies they may have, and the class they are in. Place the name tag on your child and keep the other to present when picking up your child.</li>
-        <li>We’ll show you where your child’s class is located and introduce you to his or her teachers.</li>
-      </ul>
-    </>
-  ),
+  visitors: {
+    title: "First Time Guests",
+    content: (
+      <>
+        <p>Welcome! We’re happy that you’re going to visit! Please stop by the Children’s Welcome Desk in the middle of the building to check your child in.</p>
+        <ul>
+          <li>Complete an information card, and then we’ll print two tags for you: One tag will print with your child’s name, any allergies they may have, and the class they are in. Place the name tag on your child and keep the other to present when picking up your child.</li>
+          <li>We’ll show you where your child’s class is located and introduce you to his or her teachers.</li>
+        </ul>
+      </>
+    ),
+  },
   current_schedule: {
     name: "Current Schedule",
-    description: "Description coming soon",
     days: [
       {
         label: "Sunday",
-        blocks: [
+        events: [
           {
             time: "9:30 am",
             details: (
               <>
-                <p>Nursery</p>
-                <p>Preschool Life Groups</p>
-                <p>Kids Life Groups (through 5th grade)</p>
+                <p>
+                  Nursery<br />
+                  Preschool Life Groups<br />
+                  Kids Life Groups (through 5th grade)
+                </p>
               </>
             ),
           },
@@ -54,9 +57,11 @@ export default {
             time: "11:00 am",
             details: (
               <>
-              <p>Nursery</p>
-              <p>Preschool Life Groups</p>
-              <p>Avenue Kids Worship Hour (through 3rd grade)</p>
+                <p>
+                  Nursery<br />
+                  Preschool Life Groups<br />
+                  Avenue Kids Worship Hour (through 3rd grade)
+                </p>
               </>
             ),
           },
@@ -64,7 +69,7 @@ export default {
       },
       {
         label: "Wednesday",
-        blocks: [
+        events: [
           {
             time: "6:15 pm",
             details: (
@@ -93,19 +98,17 @@ export default {
       description: "During the school year, we offer Awana for children ages 4 through 6th grade. Awana is an International Bible-centered program. The kids will learn the importance of God’s Word through Bible memorization as well as hearing stories from the Bible and having game time.",
     },
   ],
-  resources: (
-    <>
-      <h3>Resources</h3>
+  resources: {
+    title: "Resources",
+    content: (
       <ul>
         <li>
-          <h4>Email</h4>
-          <p><a href="/contact">Contact Robert Walker</a> the Pastor to the Children and their Families</p>
+          <strong>Email</strong> – <a href="/contact">Contact Robert Walker</a> the Pastor to the Children and their Families
         </li>
         <li>
-          <h4>Facebook</h4>
-          <p>Subscribe to <a href="#facebook">our Facebook page</a></p>
+          <strong>Facebook</strong> – Subscribe to <a href="#facebook">our Facebook page</a>
         </li>
       </ul>
-    </>
-  ),
+    ),
+  },
 };

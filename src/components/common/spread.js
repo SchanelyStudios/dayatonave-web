@@ -1,7 +1,10 @@
 import React from "react";
 import ClassNames from "classnames";
 
-const Spread = ({ figure, flipped, children, className, cta }) => {
+import CTA from "./cta";
+import Figure from "./figure";
+
+const Spread = ({ figure, lead, flipped, children, className, cta }) => {
   let classNames = ClassNames(
     className,
     "spread",
@@ -12,14 +15,19 @@ const Spread = ({ figure, flipped, children, className, cta }) => {
 
   return (
     <div className={classNames}>
-    	<div className="spread__figure">
-    		{figure}
-    	</div>
+      {(figure
+        ? <Figure className="spread__figure" src={figure.src} alt={figure.alt} />
+        : null
+      )}
     	<div className="spread__content">
+        {lead}
     		<div className="spread__content__copy">
     			{children}
     		</div>
-        {cta}
+        {(cta
+          ? <CTA className="spread__content__cta" action={cta} label={cta.label} />
+          : null
+        )}
     	</div>
     </div>
   );

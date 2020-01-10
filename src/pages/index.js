@@ -10,7 +10,6 @@ import SectionHeader from "../components/common/section-header";
 import SEO from "../components/seo";
 import SmartLink from "../components/common/smart-link";
 import Spread from "../components/common/spread";
-import SpreadCTA from "../components/common/spread/cta";
 import Tile from "../components/common/tile";
 import TileContainer from "../components/common/tile/container";
 
@@ -62,9 +61,7 @@ const IndexPage = () => {
           figure={
             <YouTube className="home__intro__video" videoId={copy.videoId} />
           }
-          cta={
-            <SpreadCTA path="/about/">Learn more</SpreadCTA>
-          }
+          cta={{ path: "/about", label: "Learn more" }}
         >
           {copy.intro.block}
         </Spread>

@@ -8,7 +8,7 @@ const FlierContainer = ({ children, className }) => {
     "fliers"
   );
   return (
-    <div class={classNames}>
+    <div className={classNames}>
       {children}
     </div>
   );
