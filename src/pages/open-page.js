@@ -1,14 +1,9 @@
 import React from "react";
 
-// import Button from "../components/common/button";
-// import Layout from "../components/layout";
-// import Placeholdit from "../components/common/placeholdit";
 import SectionHeader from "../components/common/section-header";
 import Blob from "../components/common/blob";
 import Flier from "../components/common/flier";
 import FlierContainer from "../components/common/flier/container";
-// import SEO from "../components/seo";
-// import SmartLink from "../components/common/smart-link";
 import Spread from "../components/common/spread";
 import SpreadLead from "../components/common/spread/lead";
 import Tile from "../components/common/tile";
@@ -42,7 +37,6 @@ export const query = graphql`
                 }
                 ... on PRISMIC_Test_open_page{
                   title1
-                  slug
                   _meta{
                     uid
                   }
@@ -69,7 +63,6 @@ export const query = graphql`
                 }
                 ... on PRISMIC_Test_open_page{
                   title1
-                  slug
                   _meta{
                     uid
                   }
@@ -95,7 +88,6 @@ export const query = graphql`
                 }
                 ... on PRISMIC_Test_open_page{
                   title1
-                  slug
                   _meta{
                     uid
                   }
@@ -127,7 +119,6 @@ export const query = graphql`
                 }
                 ... on PRISMIC_Test_open_page{
                   title1
-                  slug
                   _meta{
                     uid
                   }
@@ -142,8 +133,8 @@ export const query = graphql`
   }
 `;
 
-const BeholdTestPage = ({ data }) => {
-  let { title, slices } = ContentService.beholdTest(data);
+const OpenPage = ({ data }) => {
+  let { title, slices } = ContentService.openPage(data);
   return (
     <>
       <SectionHeader>
@@ -219,4 +210,4 @@ const BeholdTestPage = ({ data }) => {
   )
 }
 
-export default BeholdTestPage;
+export default OpenPage;

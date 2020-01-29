@@ -13,19 +13,6 @@ import Spread from "../components/common/spread";
 import Tile from "../components/common/tile";
 import TileContainer from "../components/common/tile/container";
 
-// export const query = graphql`
-//   query{
-//     prismic {
-//       home_page(uid:"home", lang:"en-us") {
-//         page_title
-//         intro_copy
-//         intro_heading
-//         about_video
-//       }
-//     }
-//   }
-// `;
-
 const apiKey = process.env.GOOGLE_API;
 
 const IndexPage = () => {
@@ -37,21 +24,9 @@ const IndexPage = () => {
       <main className="page page--full-bleed">
         <h1 aria-hidden="true">{copy.title}</h1>
 
-        <div className="home__features">
-          <SmartLink>
-            <Placeholdit size="1620x1000" text="Carousel FPO" />
-          </SmartLink>
+        <div className="home__features figure">
+          <Placeholdit size="1620x800" text="Carousel FPO" />
           {/* TODO: Add carousel styles and functionality */}
-          {/*<ul className="home__feature-list">
-            {copy.features.map(({ name, graphic, moreURL, morePath}, i) => (
-              <li key={i}>
-                <SmartLink href={moreURL} path={morePath}>
-                  {name}
-                  {graphic}
-                </SmartLink>
-              </li>
-            ))}
-          </ul>*/}
         </div>
 
         <SectionHeader level="2">{copy.intro.title}</SectionHeader>

@@ -30,6 +30,7 @@ export default (input) => {
     let slice = {};
 
     switch (rawSlice.type) {
+      // Spreads are two-up layouts typically showing a figure and content
       case "spread":
         slice = {
           type: rawSlice.type,
@@ -46,6 +47,7 @@ export default (input) => {
           }
         };
       break;
+      // Fliers are a variation of spreads but with a wider content block
       case "flier":
         slice = {
           type: rawSlice.type,
@@ -61,6 +63,8 @@ export default (input) => {
           }
         };
       break;
+      // Tiles are smaller repeating components that can have figures or not,
+      // and have an Avatar variation
       case "tiles":
         let type;
         console.log(rawSlice.primary.tile_type);
@@ -108,6 +112,7 @@ export default (input) => {
           tiles,
         };
       break;
+      // Blobs are large blocks of rich content
       default: // Blob
         slice = {
           type: rawSlice.type,
