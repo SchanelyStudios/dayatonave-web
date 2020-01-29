@@ -11,8 +11,6 @@ const CTA = ({ action, label, className, children }) => {
     "cta"
   );
 
-  console.log("action", action, "label", label);
-
   return (
     <Button href={action.href} path={action.path} className={classNames}>
       {label}

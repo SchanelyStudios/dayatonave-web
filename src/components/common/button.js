@@ -12,7 +12,6 @@ class Button extends React.Component {
   }
 
   handleClick(e) {
-    console.log("handle click from button");
     if (this.props.action) {
       this.props.action(e);
     }
@@ -26,8 +25,6 @@ class Button extends React.Component {
         [`btn--${this.props.color}`]: this.props.color,
       }
     ];
-
-    console.log(classes);
 
     if (this.props.href || this.props.path) {
       let classNames = ClassNames("btn", classes);

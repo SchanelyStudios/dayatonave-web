@@ -17,7 +17,6 @@ const apiKey = process.env.GOOGLE_API;
 
 const IndexPage = () => {
   const copy = ContentService.home;
-  console.log(copy);
   return (
     <Layout activeNavPath="/">
       <SEO title={copy.title} />

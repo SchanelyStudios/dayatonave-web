@@ -67,7 +67,6 @@ export default (input) => {
       // and have an Avatar variation
       case "tiles":
         let type;
-        console.log(rawSlice.primary.tile_type);
         switch(rawSlice.primary.tile_type) {
           case "Illustrations":
             type = "illustration";
@@ -82,7 +81,6 @@ export default (input) => {
 
         let tiles = [];
         rawSlice.fields.forEach((field, i) => {
-          console.log("tile field", i, field);
           let { url, alt } = field.figure
             ? field.figure
             : {
