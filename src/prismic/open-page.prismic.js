@@ -141,7 +141,7 @@ const transformSlices = (rawSlice, i) => {
 export default (input) => {
   const page = input.prismic.test_open_page;
 
-  let { body } = page;
+  let { body = [] } = page;
   let slices = [];
 
   if (body) {
