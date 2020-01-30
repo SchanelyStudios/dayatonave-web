@@ -12,9 +12,17 @@ import Spread from "../components/common/spread";
 import Tile from "../components/common/tile";
 import TileContainer from "../components/common/tile/container";
 
-const apiKey = process.env.GOOGLE_API;
+const apiKey = process.env.GATSBY_GOOGLE_API;
 
 const IndexPage = () => {
+  console.table([{
+      label: "GOOGLE_API",
+      value: process.env.GATSBY_GOOGLE_API,
+    }, {
+      label: "TOOLKIT_URL",
+      value: process.env.GATSBY_TOOLKIT_URL
+    }
+  ]);
   const copy = ContentService.home;
   return (
     <Layout activeNavPath="/">
@@ -55,12 +63,12 @@ const IndexPage = () => {
               <p>{copy.current_schedule.description}</p>
             </div>
             <ul className="schedule__days">
-              {copy.current_schedule.days.map(({ label, blocks }) => (
-                <li className="schedule__day day-schedule">
+              {copy.current_schedule.days.map(({ label, blocks }, i) => (
+                <li className="schedule__day day-schedule" klye={i}>
                   <h4 className="day-schedule__label">{label}</h4>
                   <ul className="day-schedule__time-blocks">
-                    {blocks.map(({ time, details }) => (
-                      <li className="day-schedule__time-block">
+                    {blocks.map(({ time, details }, j) => (
+                      <li key={j} className="day-schedule__time-block">
                         <h5 className="day-schedule__time-block__time">{time}</h5>
                         <div className="day-schedule__time-block__details">
                           {details}

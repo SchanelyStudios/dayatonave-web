@@ -8,10 +8,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
+import Helmet from "react-helmet";
 
 import Header from "./header";
 import Footer from "./footer";
-import "../styles/app.scss";
 
 const Layout = ({ activeNavPath, children }) => (
   <StaticQuery
@@ -26,6 +26,10 @@ const Layout = ({ activeNavPath, children }) => (
     `}
     render={data => (
       <>
+        <Helmet>
+          <link type="text/css" rel="stylesheet" href={`${process.env.GATSBY_TOOLKIT_URL}/assets/toolkit/styles/toolkit.css`} />
+        	<script src="https://kit.fontawesome.com/befe9b5d4b.js" crossorigin="anonymous"></script>
+        </Helmet>
         <Header
           activeItem={activeNavPath}
           siteTitle={data.site.siteMetadata.title}
