@@ -1,6 +1,8 @@
 import React from "react";
 
+import Blob from "../../components/common/blob";
 import Layout from "../../components/layout";
+import SectionHeader from "../../components/common/section-header";
 import SEO from "../../components/seo";
 
 const LifeGroupsPage = () => {
@@ -8,8 +10,10 @@ const LifeGroupsPage = () => {
     <Layout activeNavPath="/ministries">
       <SEO title="LifeGroups" />
       <main className="page">
-        <h1>LifeGroups</h1>
-        <p>Content coming soon!</p>
+        <SectionHeader>LifeGroups</SectionHeader>
+        <Blob>
+          <p>Content coming soon!</p>
+        </Blob>
       </main>
     </Layout>
   );

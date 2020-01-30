@@ -4,8 +4,7 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `Dayton Avenue`,
-    subtitle: `Baptist Church`,
+    title: `Dayton Avenue Baptist Church`,
     description: `Description coming soon.`,
     author: `@philschanely`,
   },
@@ -42,12 +41,12 @@ module.exports = {
         path: '/preview', // (optional preview path. Default: /preview)
         previews: true, // (optional, activated Previews. Default: false)
         pages: [
-          // { // (optional, builds pages dynamically)
-          //   type: 'Article',         // TypeName from prismic
-          //   match: '/article/:uid',  // Pages will be generated under this pattern
-          //   path: '/article',        // Placeholder page for unpublished documents
-          //   component: require.resolve('./src/templates/article.js'),
-          // }
+          { // (optional, builds pages dynamically)
+            type: 'Test_open_page',         // TypeName from prismic
+            match: '/:uid',  // Pages will be generated under this pattern
+            path: '/404',        // Placeholder page for unpublished documents
+            component: require.resolve('./src/templates/open-page.js'),
+          }
         ],
       }
     }

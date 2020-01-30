@@ -1,6 +1,8 @@
 import React from "react";
 
+import Blob from "../components/common/blob";
 import Layout from "../components/layout";
+import SectionHeader from "../components/common/section-header";
 import SEO from "../components/seo";
 
 const TermsPage = () => {
@@ -8,8 +10,10 @@ const TermsPage = () => {
     <Layout activeNavPath="/terms">
       <SEO title="Privacy and Terms of Use" />
       <main className="page">
-        <h1>Privacy and Terms of Use</h1>
-        <p>Content coming soon!</p>
+        <SectionHeader>Privacy and Terms of Use</SectionHeader>
+        <Blob>
+          <p>Content coming soon!</p>
+        </Blob>
       </main>
     </Layout>
   );

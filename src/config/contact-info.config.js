@@ -3,12 +3,12 @@ export default {
     alias: "phone",
     label: "Call us at:",
     content: "(937) 376-8223",
-    iconClasses: "fas fa-md fa-phone",
+    iconClasses: "phone",
   },
   address: {
-    alias: "address",
+    alias: "street",
     label: "Visit us at:",
     content: "1121 Dayton Ave, Xenia, OH 45385",
-    iconClasses: "fas fa-md fa-map-marker-alt",
+    iconClasses: "map-pointer",
   },
 };

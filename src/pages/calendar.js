@@ -1,9 +1,11 @@
 import React from "react";
 
-import Layout from "../components/layout";
-import SEO from "../components/seo";
-
 import ContentService from '../services/content.service';
+
+import Blob from "../components/common/blob";
+import Layout from "../components/layout";
+import SectionHeader from "../components/common/section-header";
+import SEO from "../components/seo";
 
 const AboutPage = () => {
   const copy = ContentService.calendar;
@@ -11,8 +13,10 @@ const AboutPage = () => {
     <Layout activeNavPath="/calendar">
       <SEO title={copy.title} />
       <main className="page">
-        <h1>{copy.title}</h1>
-        {copy.content}
+        <SectionHeader>{copy.title}</SectionHeader>
+        <Blob>
+          {copy.content}
+        </Blob>
       </main>
     </Layout>
   );

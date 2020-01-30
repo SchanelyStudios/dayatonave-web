@@ -2,63 +2,70 @@ import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
 
+import Logo from "./common/logo";
+
 import MastheadConfig from "../config/masthead.config";
 
-const Header = ({ siteTitle, siteSubTitle, activeItem }) => (
+const Header = ({ siteTitle, activeItem }) => (
   <header className="masthead">
-    <h1 className="masthead__brand brand brand--inline">
-      <img className="brand__logo" src="//placehold.it/100x100/424b5a/f2f5f7?text=DABC" alt="" />
-      <Link className="brand__link" to="/">
-        {siteTitle}
-      </Link>
-      <small className="brand__subtitle">
-        {siteSubTitle}
-      </small>
-    </h1>
-
-    <nav className="masthead__nav nav-main">
-      <ul className="nav-main__list">
-        {MastheadConfig.navLinks.map(({ path, label }, i) => {
+  	<Logo type="wordmark" color="mono-light">
+      {siteTitle}
+    </Logo>
+  	<nav className="masthead__nav-main">
+  		<h2 className="visually-hidden">Main Navigation Link</h2>
+  		<ul className="nav nav--main">
+  			{MastheadConfig.navLinks.map(({ path, label }, i) => {
           const activeClass = activeItem === path
-            ? "nav-item--active"
+            ? "nav__item--active"
             : "";
+
           return (
-            <li className={`nav-item ${activeClass}`} key={i}>
-              <Link className="nav-item__link" to={path}>
+            <li className={`nav__item ${activeClass}`} key={i}>
+              <Link className="nav__link" to={path}>
                 {label}
               </Link>
             </li>
           );
         })}
-      </ul>
-    </nav>
-
-    <div className="masthead__contacts contacts">
-      {MastheadConfig.contactInfo.map(({ alias, label, iconClasses, content }, i) => (
-        <p className={`contact contact--${alias}`} key={i}>
-          <span className={`contact__icon ${iconClasses}`} title={label}></span>
-          <span className="contact__content">
-            {content}
-          </span>
+  		</ul>
+  	</nav>
+  	<address className="masthead__address">
+  		{MastheadConfig.contactInfo.map(({ alias, label, iconClasses, content }, i) => (
+        <p className={`masthead__address__${alias} icon-before icon-before--${iconClasses}`}
+          title={`${label} ${content}`}
+          key={i}
+        >
+          {content}
         </p>
       ))}
-    </div>
-
-    <ul className="masthead__socials socials">
-      {MastheadConfig.socials.map(({ url, title, iconClasses }, i) => (
-        <li className="social" key={i}>
-          <a className="social__link" href={url} title={title}>
-            <span className={`social__icon ${iconClasses}`}></span>
-          </a>
-        </li>
-      ))}
-    </ul>
-
-    <p className="masthead__e-giving e-giving">
-      <a className="e-giving__link" href={MastheadConfig.eGiving.url}>
+  	</address>
+  	<nav className="masthead__nav-sub">
+  		<a className="nav__link nav__link--standalone"
+        href={MastheadConfig.eGiving.url}
+      >
         {MastheadConfig.eGiving.label}
       </a>
-    </p>
+
+      <h2 className="visually-hidden">Media and Social Links</h2>
+  		<ul className="nav nav--socials">
+  			{MastheadConfig.socials.map(({ url, title, iconClasses }, i) => (
+          <li className="nav__item" key={i}>
+            <a className={`nav__link default icon icon--${iconClasses}`}
+              href={url}
+            >
+              <span className="visually-hidden">{title}</span>
+            </a>
+          </li>
+        ))}
+  		</ul>
+  	</nav>
+    {/* TODO: set up interactions here on mobile nav icon */}
+  	<button className="btn--clean masthead__menu-icon">
+  		<i className="icon icon--menu-bars"></i>
+  	</button>
+  	<button className="btn--clean masthead__menu-icon masthead__menu-icon--close">
+  		<i className="icon icon--menu-bars"></i>
+  	</button>
   </header>
 );
 

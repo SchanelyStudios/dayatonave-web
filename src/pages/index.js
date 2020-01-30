@@ -1,60 +1,43 @@
 import React from "react";
-
-import Layout from "../components/layout";
-import SEO from "../components/seo";
 import YouTube from 'react-youtube';
-
-import SmartLink from "../components/common/smart-link";
-import Placeholdit from "../components/common/placeholdit";
 
 import ContentService from '../services/content.service';
 
-// export const query = graphql`
-//   query{
-//     prismic {
-//       home_page(uid:"home", lang:"en-us") {
-//         page_title
-//         intro_copy
-//         intro_heading
-//         about_video
-//       }
-//     }
-//   }
-// `;
+import Button from "../components/common/button";
+import Layout from "../components/layout";
+import Placeholdit from "../components/common/placeholdit";
+import SectionHeader from "../components/common/section-header";
+import SEO from "../components/seo";
+import Spread from "../components/common/spread";
+import Tile from "../components/common/tile";
+import TileContainer from "../components/common/tile/container";
 
 const apiKey = process.env.GOOGLE_API;
 
 const IndexPage = () => {
   const copy = ContentService.home;
-  console.log(copy);
   return (
     <Layout activeNavPath="/">
       <SEO title={copy.title} />
       <main className="page page--full-bleed">
         <h1 aria-hidden="true">{copy.title}</h1>
-        <div className="home__features">
-          <SmartLink>
-            <Placeholdit size="1620x1000" text="Carousel FPO" />
-          </SmartLink>
+
+        <div className="home__features figure">
+          <Placeholdit size="1620x800" text="Carousel FPO" />
           {/* TODO: Add carousel styles and functionality */}
-          {/*<ul className="home__feature-list">
-            {copy.features.map(({ name, graphic, moreURL, morePath}, i) => (
-              <li key={i}>
-                <SmartLink href={moreURL} path={morePath}>
-                  {name}
-                  {graphic}
-                </SmartLink>
-              </li>
-            ))}
-          </ul>*/}
         </div>
-        <div className="home__intro">
-          <YouTube  className="home__intro__video" videoId={copy.videoId} />
-          <div className="home__intro__content">
-            {copy.introBlock}
-            <SmartLink className="btn" path="/about/">Learn more</SmartLink>
-          </div>
-        </div>
+
+        <SectionHeader level="2">{copy.intro.title}</SectionHeader>
+
+        <Spread
+          className="home__intro"
+          figure={
+            <YouTube className="home__intro__video" videoId={copy.videoId} />
+          }
+          cta={{ path: "/about", label: "Learn more" }}
+        >
+          {copy.intro.block}
+        </Spread>
         <div className="home__location-times">
           <div className="home__location-times__map">
             <iframe
@@ -90,19 +73,22 @@ const IndexPage = () => {
             </ul>
           </div>
         </div>
-        <div className="home__what-to-expect">
-          <h3>{copy.what_to_expect.title}</h3>
-          <ul className="home__what-to-expect__grid">
-            {copy.what_to_expect.items.map(({ heading, content }, i) => (
-              <li key={i}>
-                <Placeholdit size="400x300" text="FPO" />
-                <h4>{heading}</h4>
-                {content}
-              </li>
-            ))}
-          </ul>
-          <SmartLink className="btn" path="/ministries">Our Ministries</SmartLink>
-        </div>
+
+        <SectionHeader level="2">{copy.what_to_expect.title}</SectionHeader>
+        <TileContainer className="home__what-to-expect">
+          {copy.what_to_expect.items.map(({ heading, content }, i) => (
+            <Tile
+              key={i}
+              title={heading}
+              figure={<Placeholdit size="400x300" text="FPO" />}
+            >
+              {content}
+            </Tile>
+          ))}
+        </TileContainer>
+
+        <Button className="home__ministries-cta" path="/ministries">Our Ministries</Button>
+
       </main>
     </Layout>
   );

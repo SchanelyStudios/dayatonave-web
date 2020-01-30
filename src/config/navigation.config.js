@@ -72,6 +72,7 @@ export default {
     label: "Members' Portal",
     alias: "members",
     path: "/members",
+    description: "News and other information for members and regular attendees.",
   },
   terms: {
     label: "Privacy and Terms of Use",

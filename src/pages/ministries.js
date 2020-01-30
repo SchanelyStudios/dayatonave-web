@@ -1,14 +1,18 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 
+import Flier from "../components/common/flier";
+import FlierContainer from "../components/common/flier/container";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Placeholdit from "../components/common/placeholdit";
+import SectionHeader from "../components/common/section-header";
+import Spread from "../components/common/spread";
 
 import ContentService from "../services/content.service";
 
 export const query = graphql`
-  query{
+  query {
     prismic {
       ministry_page(uid:"ministries", lang:"en-us") {
         page_title
@@ -40,45 +44,29 @@ const MinistryPage = (input) => {
     <Layout activeNavPath="/ministries">
       <SEO title={title} />
       <main className="page">
-        <div className="intro-block">
-          <div className="intro-block__content">
-            <h3 className="intro-block__heading">
-              {intro.heading}
-            </h3>
-            <div className="intro-block__copy">
-              {intro.copy}
-            </div>
-          </div>
-          <div className="intro-block__figure">
-            <Placeholdit className="intro-block__image" size="600x400" text="FPO" />
-          </div>
-        </div>
-        <h3 className="page__section-heading">Our Ministries</h3>
-        <ul className="ministry-blocks">
-          {ministries.map(({ name, intro, path, imageURL, hasFollowupPage }, i) => {
-            console.log(hasFollowupPage);
-            return (
-              <li className="ministry-block" key={i}>
-                <div className="ministry-block__content">
-                  <h4 className="ministry-block__heading">
-                    {name}
-                  </h4>
-                  <div className="ministry-block__copy">
-                    {intro}
-                  </div>
-                  {hasFollowupPage ? (
-                      <Link className="ministry-block__more-link btn btn--uncentered" to={path}>
-                        Learn More
-                      </Link>
-                    ) : ("")}
-                </div>
-                <div className="ministry-block__figure">
-                  <Placeholdit className="ministry-block__image" size="400x400" text="FPO" />
-                </div>
-              </li>
-            );
-          })}
-        </ul>
+        <SectionHeader>{intro.heading}</SectionHeader>
+        <Spread figure={<Placeholdit className="intro-block__image" size="600x400" text="FPO" />}>
+          {intro.copy}
+        </Spread>
+        <SectionHeader level="2">Our Ministries</SectionHeader>
+        <FlierContainer className="ministry-blocks">
+          {ministries.map(({ name, intro, path, imageURL, hasFollowupPage }, i) => (
+            <Flier
+              className="ministry-block"
+              key={i}
+              cta={hasFollowupPage ? {
+                path,
+                label: "Learn more"
+              } : null}
+              figure={null}
+            >
+              <h4 className="type-display-3">
+                {name}
+              </h4>
+              {intro}
+            </Flier>
+          ))}
+        </FlierContainer>
       </main>
     </Layout>
   );
