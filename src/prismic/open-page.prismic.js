@@ -139,9 +139,16 @@ const transformSlices = (rawSlice, i) => {
 };
 
 export default (input) => {
-  const page = input.prismic.test_open_page;
+  let page = input.prismic.test_open_page;
 
-  let { body = [] } = page || { body: [] };
+  if (!page) {
+    page = {
+      title1: "",
+      body: []
+    }
+  }
+
+  let { body, title1: title } = page;
   let slices = [];
 
   if (body) {
@@ -149,7 +156,7 @@ export default (input) => {
   }
 
   return {
-    title: renderText(page.title1),
+    title: renderText(title),
     slices
   };
 }

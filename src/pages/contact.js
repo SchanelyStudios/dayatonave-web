@@ -19,15 +19,15 @@ const AboutPage = () => {
           <form className="contact-page__form" action="https://formspree.io/philschanely@gmail.com" method="POST">
             <ul className="fields">
               <li className="field">
-                <label className="field__label">Email</label>
+                <label className="field__label" htmlFor="email">Email</label>
                 <div className="field__control">
-                  <input type="email" name="_replyto" />
+                  <input type="email" name="_replyto" id="email" />
                 </div>
               </li>
               <li className="field">
-                <label className="field__label">Subject</label>
+                <label className="field__label" htmlFor="subject">Subject</label>
                 <div className="field__control">
-                  <select name="subject">
+                  <select name="subject" id="subject">
                     <option>General inquiry</option>
                     <option>Contact senior pastor</option>
                     <option>Contact executive pastor</option>
@@ -38,9 +38,9 @@ const AboutPage = () => {
                 </div>
               </li>
               <li className="field">
-                <label className="field__label">Message</label>
+                <label className="field__label" htmlFor="message">Message</label>
                 <div className="field__control">
-                  <textarea name="message"></textarea>
+                  <textarea name="message" id="message"></textarea>
                 </div>
               </li>
             </ul>

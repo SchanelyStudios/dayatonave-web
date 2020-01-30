@@ -8,7 +8,6 @@ import Layout from "../components/layout";
 import Placeholdit from "../components/common/placeholdit";
 import SectionHeader from "../components/common/section-header";
 import SEO from "../components/seo";
-import SmartLink from "../components/common/smart-link";
 import Spread from "../components/common/spread";
 import Tile from "../components/common/tile";
 import TileContainer from "../components/common/tile/container";
