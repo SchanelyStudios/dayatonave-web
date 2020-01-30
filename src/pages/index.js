@@ -12,15 +12,15 @@ import Spread from "../components/common/spread";
 import Tile from "../components/common/tile";
 import TileContainer from "../components/common/tile/container";
 
-const apiKey = process.env.GOOGLE_API;
+const apiKey = process.env.GATSBY_GOOGLE_API;
 
 const IndexPage = () => {
   console.table([{
       label: "GOOGLE_API",
-      value: process.env.GOOGLE_API,
+      value: process.env.GATSBY_GOOGLE_API,
     }, {
-      label: "TOOLKIT_URL", 
-      value: process.env.TOOLKIT_URL
+      label: "TOOLKIT_URL",
+      value: process.env.GATSBY_TOOLKIT_URL
     }
   ]);
   const copy = ContentService.home;

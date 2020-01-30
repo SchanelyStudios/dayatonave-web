@@ -1,5 +1,7 @@
 import React from "react";
 
+import { graphql } from "gatsby";
+
 import SectionHeader from "../components/common/section-header";
 import Blob from "../components/common/blob";
 import Flier from "../components/common/flier";

@@ -27,7 +27,7 @@ const Layout = ({ activeNavPath, children }) => (
     render={data => (
       <>
         <Helmet>
-          <link type="text/css" rel="stylesheet" href={`${process.env.TOOLKIT_URL}/assets/toolkit/styles/toolkit.css`} />
+          <link type="text/css" rel="stylesheet" href={`${process.env.GATSBY_TOOLKIT_URL}/assets/toolkit/styles/toolkit.css`} />
         	<script src="https://kit.fontawesome.com/befe9b5d4b.js" crossorigin="anonymous"></script>
         </Helmet>
         <Header
