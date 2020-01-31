@@ -6,11 +6,16 @@ import media from '../mocks/media';
 import MinistriesMocks from '../mocks/ministries';
 import MinistriesChildrenMocks from '../mocks/ministries/children';
 import MinistriesPrismic from '../prismic/ministries.prismic';
+import AboutPrismic from '../prismic/about.prismic';
 import HomePrismic from '../prismic/home.prismic';
 import OpenPagePrismic from '../prismic/open-page.prismic';
 
 export default {
-  about,
+  about: (input) => {
+    return input.useMock
+      ? about
+      : AboutPrismic(input);
+  },
   calendar,
   contact,
   home: (input) => {
