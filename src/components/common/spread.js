@@ -11,12 +11,12 @@ const Spread = ({ figure, lead, flipped, children, className, cta }) => {
     {
       "spread--flipped": flipped
     }
-  )
+  );
 
   return (
     <div className={classNames}>
       {(figure
-        ? <Figure className="spread__figure" src={figure.src} alt={figure.alt} />
+        ? <Figure className="spread__figure" element={figure.element} src={figure.src} alt={figure.alt} />
         : null
       )}
     	<div className="spread__content">
