@@ -23,6 +23,7 @@ class Button extends React.Component {
       {
         "btn--flat": this.props.flat,
         [`btn--${this.props.color}`]: this.props.color,
+        "btn--center": this.props.centered
       }
     ];
 
