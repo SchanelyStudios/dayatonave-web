@@ -41,11 +41,17 @@ module.exports = {
         path: '/preview', // (optional preview path. Default: /preview)
         previews: true, // (optional, activated Previews. Default: false)
         pages: [
-          { // (optional, builds pages dynamically)
-            type: 'Test_open_page',         // TypeName from prismic
-            match: '/:uid',  // Pages will be generated under this pattern
-            path: '/404',        // Placeholder page for unpublished documents
+          {
+            type: 'Test_open_page',
+            match: '/:uid',
+            path: '/404',
             component: require.resolve('./src/templates/open-page.js'),
+          },
+          {
+            type: 'Resource_page',
+            match: '/resources/:uid',
+            path: '/404',
+            component: require.resolve('./src/templates/resource-page.js'),
           }
         ],
       }

@@ -9,6 +9,7 @@ import MinistriesPrismic from '../prismic/ministries.prismic';
 import AboutPrismic from '../prismic/about.prismic';
 import HomePrismic from '../prismic/home.prismic';
 import OpenPagePrismic from '../prismic/open-page.prismic';
+import ResourcePagePrismic from '../prismic/resource-page.prismic';
 
 export default {
   about: (input) => {
@@ -32,5 +33,8 @@ export default {
   childrensMinistries: MinistriesChildrenMocks,
   openPage: (input) => {
     return OpenPagePrismic(input);
+  },
+  resourcePage: (input) => {
+    return ResourcePagePrismic(input);
   }
 };
