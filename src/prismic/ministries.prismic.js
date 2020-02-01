@@ -1,4 +1,4 @@
-import { RichText } from 'prismic-reactjs';
+import { renderHtml, renderText } from "../utils/prismicRenderer";
 
 export default (input) => {
   const page = input.data.prismic.ministry_page;
@@ -6,20 +6,26 @@ export default (input) => {
 
   page.ministries.forEach(({ ministry }, i) => {
     ministries.push({
-      name: RichText.asText(ministry.ministry_name),
-      intro: RichText.render(ministry.short_description),
-      imageURL: ministry.thumbnail.url,
+      name: renderText(ministry.ministry_name),
+      intro: renderHtml(ministry.short_description),
+      figure: {
+        alt: ministry.thumbnail.alt,
+        src: ministry.thumbnail.url
+      },
       hasFollowupPage: ministry.has_followup_page === "Yes",
       path: `/ministries/${ministry._meta.uid}`,
     });
   });
 
   return {
-    title: RichText.asText(page.page_title),
+    title: renderText(page.page_title),
     intro: {
-      heading: RichText.asText(page.intro_heading),
-      copy: RichText.render(page.intro_copy),
-      imageURL: page.intro_image.url,
+      heading: renderText(page.intro_heading),
+      copy: renderHtml(page.intro_copy),
+      figure: {
+        alt: page.intro_image.alt,
+        src: page.intro_image.url
+      },
     },
     ministries,
   };

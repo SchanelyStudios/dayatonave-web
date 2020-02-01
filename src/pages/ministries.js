@@ -45,12 +45,12 @@ const MinistryPage = (input) => {
       <SEO title={title} />
       <main className="page">
         <SectionHeader>{intro.heading}</SectionHeader>
-        <Spread figure={<Placeholdit className="intro-block__image" size="600x400" text="FPO" />}>
+        <Spread figure={intro.figure}>
           {intro.copy}
         </Spread>
         <SectionHeader level="2">Our Ministries</SectionHeader>
         <FlierContainer className="ministry-blocks">
-          {ministries.map(({ name, intro, path, imageURL, hasFollowupPage }, i) => (
+          {ministries.map(({ name, intro, path, figure, hasFollowupPage }, i) => (
             <Flier
               className="ministry-block"
               key={i}
@@ -58,7 +58,7 @@ const MinistryPage = (input) => {
                 path,
                 label: "Learn more"
               } : null}
-              figure={null}
+              figure={figure}
             >
               <h4 className="type-display-3">
                 {name}
