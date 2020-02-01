@@ -1,4 +1,4 @@
-import { renderHtml, renderText } from "../utils/prismicRenderer";
+import { renderHtml, renderText, resolveImage } from "../utils/prismicRenderer";
 
 // Spreads are two-up layouts typically showing a figure and content
 const transformSpread = (rawSlice) => {
@@ -7,10 +7,7 @@ const transformSpread = (rawSlice) => {
     title: renderText(rawSlice.primary.title1),
     lead: renderHtml(rawSlice.primary.lead),
     content: renderHtml(rawSlice.primary.content),
-    figure: {
-      src: rawSlice.primary.figure.url,
-      alt: rawSlice.primary.figure.alt,
-    },
+    figure: resolveImage(rawSlice.primary.figure),
     cta: {
       label: "More",
       href: "http://example.com"
@@ -24,10 +21,7 @@ const transformFlier = (rawSlice) => {
     type: rawSlice.type,
     title: renderText(rawSlice.primary.title1),
     content: renderHtml(rawSlice.primary.content),
-    figure: {
-      src: rawSlice.primary.figure.url,
-      alt: rawSlice.primary.figure.alt,
-    },
+    figure: resolveImage(rawSlice.primary.figure),
     cta: {
       label: "More",
       href: "http://example.com"
@@ -66,22 +60,12 @@ const transformTiles = (rawSlice) => {
 
   let tiles = [];
   rawSlice.fields.forEach((field, i) => {
-    let { url, alt } = field.figure
-      ? field.figure
-      : {
-        url: "#",
-        alt: ""
-      };
-
     tiles.push({
       title: renderText(field.label),
       subtitle: renderText(field.sublabel),
       content: renderHtml(field.content),
       type,
-      figure: {
-        src: url,
-        alt,
-      },
+      figure: resolveImage(field.figure),
       cta: {
         label: "More",
         href: "http://example.com"

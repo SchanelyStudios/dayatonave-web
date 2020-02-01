@@ -1,4 +1,4 @@
-import { renderHtml, renderText } from "../utils/prismicRenderer";
+import { renderHtml, renderText, resolveImage } from "../utils/prismicRenderer";
 
 export default (input) => {
   const page = input.data.prismic.ministry_page;
@@ -8,10 +8,7 @@ export default (input) => {
     ministries.push({
       name: renderText(ministry.ministry_name),
       intro: renderHtml(ministry.short_description),
-      figure: {
-        alt: ministry.thumbnail.alt,
-        src: ministry.thumbnail.url
-      },
+      figure: resolveImage(ministry.thumbnail),
       hasFollowupPage: ministry.has_followup_page === "Yes",
       path: `/ministries/${ministry._meta.uid}`,
     });
@@ -22,10 +19,7 @@ export default (input) => {
     intro: {
       heading: renderText(page.intro_heading),
       copy: renderHtml(page.intro_copy),
-      figure: {
-        alt: page.intro_image.alt,
-        src: page.intro_image.url
-      },
+      figure: resolveImage(page.intro_image),
     },
     ministries,
   };

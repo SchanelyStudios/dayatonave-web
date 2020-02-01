@@ -28,6 +28,9 @@ export const query = graphql`
   query OpenPageQuery($uid: String!){
     prismic {
       test_open_page(uid:$uid, lang:"en-us") {
+        _meta {
+          uid
+        }
         title1
         summary
         cover
@@ -91,9 +94,10 @@ export const query = graphql`
 `;
 
 const OpenPage = ({ data }) => {
-  let { title, slices } = ContentService.openPage(data);
+  let { title, slices, slug } = ContentService.openPage(data);
+
   return (
-    <Layout activeNavPath="/">
+    <Layout activeNavPath={`/${slug}`}>
       <SEO title={title} />
       <SectionHeader>
         {title}

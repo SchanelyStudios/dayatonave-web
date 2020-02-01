@@ -17,6 +17,13 @@ const renderText = (content) => {
 
 const resolveYoutubeId = (video) => {
   return video.embed_url.replace("https://youtu.be/", "");
-}
+};
 
-export { renderHtml, renderText, resolveYoutubeId };
+const resolveImage = (image) => {
+  return image ? {
+    src: image.url,
+    alt: image.alt
+  } : null;
+};
+
+export { renderHtml, renderText, resolveYoutubeId, resolveImage };

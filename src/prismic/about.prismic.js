@@ -1,4 +1,4 @@
-import { renderHtml, renderText, resolveYoutubeId } from "../utils/prismicRenderer";
+import { renderHtml, renderText, resolveYoutubeId, resolveImage } from "../utils/prismicRenderer";
 
 export default (input) => {
   const page = input.data.prismic.about_page;
@@ -8,10 +8,7 @@ export default (input) => {
     return {
       label: renderText(belief.belief_heading),
       content: renderHtml(belief.belief_copy),
-      figure: {
-        alt: belief.belief_icon.alt,
-        src: belief.belief_icon.url
-      }
+      figure: resolveImage(belief.belief_icon),
     }
   });
 
@@ -20,10 +17,7 @@ export default (input) => {
     return {
       name: renderText(pastor.name),
       position: renderText(pastor.position),
-      figure: {
-        alt: "",
-        src: pastor.picture.url
-      }
+      figure: resolveImage(pastor.picture),
     };
   });
 
