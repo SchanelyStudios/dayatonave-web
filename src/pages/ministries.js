@@ -5,7 +5,6 @@ import Flier from "../components/common/flier";
 import FlierContainer from "../components/common/flier/container";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import Placeholdit from "../components/common/placeholdit";
 import SectionHeader from "../components/common/section-header";
 import Spread from "../components/common/spread";
 
