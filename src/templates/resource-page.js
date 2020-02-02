@@ -9,9 +9,9 @@ import Button from "../components/common/button";
 import ContentService from "../services/content.service";
 
 export const query = graphql`
-  query ResourcePageQuery {
+  query ResourcePageQuery($uid: String!) {
     prismic {
-      resource_page(lang: "en-us", uid: "church-constitution") {
+      resource_page(lang: "en-us", uid: $uid) {
         _meta {
           uid
         }

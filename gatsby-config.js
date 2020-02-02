@@ -52,6 +52,24 @@ module.exports = {
             match: '/resources/:uid',
             path: '/404',
             component: require.resolve('./src/templates/resource-page.js'),
+          },
+          {
+            type: 'Event_page',
+            match: '/events/:uid',
+            path: '/404',
+            component: require.resolve('./src/templates/event-page.js'),
+          },
+          {
+            type: 'Empoyee',
+            match: '/staff/:uid',
+            path: '/404',
+            component: require.resolve('./src/templates/staff-page.js'),
+          },
+          {
+            type: 'Ministry',
+            match: '/ministries/:uid',
+            path: '/404',
+            component: require.resolve('./src/templates/ministry-page.js'),
           }
         ],
       }
