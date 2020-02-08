@@ -45,7 +45,7 @@ const resolveCTA = (link) => {
   console.log(link);
 
   let linkObj = null;
-  if (!link || !link._linkType) {
+  if (!link || !link._linkType || link._meta) {
     return null;
   }
 
@@ -83,7 +83,6 @@ const resolveCTA = (link) => {
         label: "More",
         href: prefix + link._meta.uid
       };
-      console.log(linkObj);
       break;
 
     // TODO: Discover other types

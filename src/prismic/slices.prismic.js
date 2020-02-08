@@ -82,7 +82,7 @@ const transformSlices = (rawSlice, i) => {
     case "tiles":
       slice = transformTiles(rawSlice);
     break;
-    default: // Blob
+    default:
       slice = transformBlob(rawSlice);
     break;
   }
