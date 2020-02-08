@@ -20,7 +20,7 @@ export default (input) => {
 
   return {
     title: renderText(title),
-    slug: page._meta.uid,
+    slug: page._meta.uid || "",
     slices
   };
 }
