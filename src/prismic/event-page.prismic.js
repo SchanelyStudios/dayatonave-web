@@ -1,4 +1,4 @@
-import { renderText, renderHtml, resolveImage } from "../utils/prismicRenderer";
+import { renderText, renderHtml, resolveImage, resolveDate } from "../utils/prismicRenderer";
 import { transformSlices } from "./slices.prismic";
 
 export default (input) => {
@@ -14,7 +14,7 @@ export default (input) => {
     title: renderText(page.event_title),
     summary: renderHtml(page.event_summary),
     cover: resolveImage(page.cover),
-    date: page.event_date,
+    date: resolveDate(page.event_date),
     time_details: renderText(page.event_time_details),
     slices
   };

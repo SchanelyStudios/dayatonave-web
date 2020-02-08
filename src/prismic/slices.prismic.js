@@ -1,17 +1,14 @@
-import { renderHtml, renderText, resolveImage } from "../utils/prismicRenderer";
+import { renderHtml, renderText, resolveImage, resolveCTA } from "../utils/prismicRenderer";
 
 // Spreads are two-up layouts typically showing a figure and content
 const transformSpread = (rawSlice) => {
   return {
     type: rawSlice.type,
     title: renderText(rawSlice.primary.title1),
-    lead: renderHtml(rawSlice.primary.lead),
-    content: renderHtml(rawSlice.primary.content),
+    lead: renderHtml(rawSlice.primary.lead) || null,
+    content: renderHtml(rawSlice.primary.content) || null,
     figure: resolveImage(rawSlice.primary.figure),
-    cta: {
-      label: "More",
-      href: "http://example.com"
-    }
+    cta: resolveCTA(rawSlice.primary.call_to_action)
   };
 };
 
@@ -19,26 +16,20 @@ const transformSpread = (rawSlice) => {
 const transformFlier = (rawSlice) => {
   return {
     type: rawSlice.type,
-    title: renderText(rawSlice.primary.title1),
+    title: renderText(rawSlice.primary.title1) || null,
     content: renderHtml(rawSlice.primary.content),
-    figure: resolveImage(rawSlice.primary.figure),
-    cta: {
-      label: "More",
-      href: "http://example.com"
-    }
+    figure: resolveImage(rawSlice.primary.figure) || null,
+    cta: resolveCTA(rawSlice.primary.call_to_action)
   };
 };
 
 // Blobs are large blocks of rich content
 const transformBlob = (rawSlice) => {
   return {
-    type: rawSlice.type,
-    title: renderText(rawSlice.primary.title),
+    type: rawSlice.type || null,
+    title: renderText(rawSlice.primary.title) || null,
     content: renderHtml(rawSlice.primary.content),
-    cta: {
-      label: "More",
-      href: "http://example.com"
-    }
+    cta: resolveCTA(rawSlice.primary.call_to_action)
   };
 };
 
@@ -62,21 +53,18 @@ const transformTiles = (rawSlice) => {
   rawSlice.fields.forEach((field, i) => {
     tiles.push({
       title: renderText(field.label),
-      subtitle: renderText(field.sublabel),
+      subtitle: renderText(field.sublabel) || null,
       content: renderHtml(field.content),
       type,
-      figure: resolveImage(field.figure),
-      cta: {
-        label: "More",
-        href: "http://example.com"
-      }
+      figure: resolveImage(field.figure) || null,
+      cta: resolveCTA(field.call_to_action)
     });
   });
 
   return {
     type: rawSlice.type,
-    title: renderText(rawSlice.primary.title1),
-    introduction: renderHtml(rawSlice.primary.introduction),
+    title: renderText(rawSlice.primary.title1) || null,
+    introduction: renderHtml(rawSlice.primary.introduction) || null,
     tiles,
   };
 };

@@ -8,7 +8,7 @@ import Slices from "../components/slices";
 import ContentService from "../services/content.service";
 
 export const query = graphql`
-  fragment linkQuery on PRISMIC__Linkable {
+  fragment openPageLinkQuery on PRISMIC__Linkable {
     _linkType
     ... on PRISMIC__ExternalLink{
       url
@@ -20,6 +20,12 @@ export const query = graphql`
     }
     ... on PRISMIC_Test_open_page{
       title1
+      _meta{
+        uid
+      }
+    }
+    ... on PRISMIC_Event_page{
+      event_title
       _meta{
         uid
       }
@@ -42,7 +48,7 @@ export const query = graphql`
               lead
               content
               call_to_action {
-                ...linkQuery
+                ...openPageLinkQuery
               }
             }
           }
@@ -54,7 +60,7 @@ export const query = graphql`
               content
               figure
               call_to_action {
-                ...linkQuery
+                ...openPageLinkQuery
               }
             }
           }
@@ -65,7 +71,7 @@ export const query = graphql`
               content
               figure
               call_to_action {
-                ...linkQuery
+                ...openPageLinkQuery
               }
             }
           }
@@ -82,7 +88,7 @@ export const query = graphql`
               sublabel
               content
               call_to_action {
-                ...linkQuery
+                ...openPageLinkQuery
               }
             }
           }

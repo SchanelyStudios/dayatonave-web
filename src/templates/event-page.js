@@ -27,6 +27,12 @@ export const query = graphql`
         uid
       }
     }
+    ... on PRISMIC_Event_page{
+      event_title
+      _meta{
+        uid
+      }
+    }
   }
   query EventPageQuery($uid: String!) {
     prismic {
@@ -104,8 +110,8 @@ const EventPage = ({ data }) => {
   return (
     <Layout activePath={`/events/${copy.slug}`}>
       <SEO title={copy.title} />
-      <SectionHeader>
-        {copy.title} <em>{copy.date}</em>
+      <SectionHeader eyebrow={copy.date.format("MMMM D, YYYY")}>
+        {copy.title}
       </SectionHeader>
       <Blob lead={<BlobLead>{copy.time_details}</BlobLead>}>
         <Figure src={copy.cover.src} alt={copy.cover.alt} />
