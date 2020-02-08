@@ -42,10 +42,9 @@ const resolveImage = (image) => {
 };
 
 const resolveCTA = (link) => {
-  console.log(link);
-
   let linkObj = null;
-  if (!link || !link._linkType || link._meta) {
+
+  if (!link || !link._linkType || !link._meta) {
     return null;
   }
 
