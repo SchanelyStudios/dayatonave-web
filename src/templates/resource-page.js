@@ -51,7 +51,9 @@ const ResourcePage = ({ data }) => {
       <Blob>
         {copy.description}
       </Blob>
-      <Button className="btn--center" href={copy.link.url}>{copy.link.label}</Button>
+      {copy.link ? (
+        <Button className="btn--center" href={copy.link.url}>{copy.link.label}</Button>
+      ) : null}
     </Layout>
   );
 }
