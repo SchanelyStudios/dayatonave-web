@@ -61,7 +61,6 @@ export const query = graphql`
 
 const AboutPage = (input) => {
   const copy = ContentService.about(input);
-  console.log(copy);
 
   // Set up youtube embed as figure for intro
   let introFigure = {
