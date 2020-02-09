@@ -23,7 +23,7 @@ const Slices = ({ slices }) => (
               </SectionHeader>
               <Spread
                 key={i}
-                lead={<SpreadLead>{slice.lead}</SpreadLead>}
+                lead={slice.lead ? <SpreadLead>{slice.lead}</SpreadLead> : null}
                 figure={slice.figure}
                 cta={slice.cta}
               >

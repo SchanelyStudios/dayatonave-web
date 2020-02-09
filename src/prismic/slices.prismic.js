@@ -5,8 +5,8 @@ const transformSpread = (rawSlice) => {
   return {
     type: rawSlice.type,
     title: renderText(rawSlice.primary.title1),
-    lead: renderHtml(rawSlice.primary.lead) || null,
-    content: renderHtml(rawSlice.primary.content) || null,
+    lead: rawSlice.primary.lead ? renderHtml(rawSlice.primary.lead) : null,
+    content: rawSlice.primary.content ? renderHtml(rawSlice.primary.content) : null,
     figure: resolveImage(rawSlice.primary.figure),
     cta: resolveCTA(rawSlice.primary.call_to_action)
   };
@@ -16,9 +16,9 @@ const transformSpread = (rawSlice) => {
 const transformFlier = (rawSlice) => {
   return {
     type: rawSlice.type,
-    title: renderText(rawSlice.primary.title1) || null,
+    title: rawSlice.primary.title1 ? renderText(rawSlice.primary.title1) : null,
     content: renderHtml(rawSlice.primary.content),
-    figure: resolveImage(rawSlice.primary.figure) || null,
+    figure: rawSlice.primary.figure ? resolveImage(rawSlice.primary.figure) : null,
     cta: resolveCTA(rawSlice.primary.call_to_action)
   };
 };
@@ -27,7 +27,7 @@ const transformFlier = (rawSlice) => {
 const transformBlob = (rawSlice) => {
   return {
     type: rawSlice.type || null,
-    title: renderText(rawSlice.primary.title) || null,
+    title: rawSlice.primary.title ? renderText(rawSlice.primary.title) : null,
     content: renderHtml(rawSlice.primary.content),
     cta: resolveCTA(rawSlice.primary.call_to_action)
   };
@@ -53,18 +53,18 @@ const transformTiles = (rawSlice) => {
   rawSlice.fields.forEach((field, i) => {
     tiles.push({
       title: renderText(field.label),
-      subtitle: renderText(field.sublabel) || null,
+      subtitle: field.sublabel ? renderText(field.sublabel) : null,
       content: renderHtml(field.content),
       type,
-      figure: resolveImage(field.figure) || null,
+      figure: field.figure ? resolveImage(field.figure) : null,
       cta: resolveCTA(field.call_to_action)
     });
   });
 
   return {
     type: rawSlice.type,
-    title: renderText(rawSlice.primary.title1) || null,
-    introduction: renderHtml(rawSlice.primary.introduction) || null,
+    title: rawSlice.primary.title1 ? renderText(rawSlice.primary.title1) : null,
+    introduction: rawSlice.primary.introduction ? renderHtml(rawSlice.primary.introduction) : null,
     tiles,
   };
 };

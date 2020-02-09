@@ -1,13 +1,11 @@
 import React from "react";
-import { RichText, Date } from "prismic-reactjs";
+import { RichText } from "prismic-reactjs";
 import moment from "moment";
 import linkResolver from "./linkResolver";
 
 const renderHtml = (content) => {
   if (!content) {
-    return (
-      <>""</>
-    );
+    return null;
   }
 
   return (
