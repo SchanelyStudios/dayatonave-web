@@ -18,9 +18,11 @@ const Slices = ({ slices }) => (
         case "spread":
           content = (
             <div key={i}>
-              <SectionHeader level="2">
+              {slice.title ? (
+                <SectionHeader level="2">
                 {slice.title}
-              </SectionHeader>
+                </SectionHeader>
+              ): null}
               <Spread
                 key={i}
                 lead={slice.lead ? <SpreadLead>{slice.lead}</SpreadLead> : null}
@@ -46,10 +48,12 @@ const Slices = ({ slices }) => (
         case "tiles":
           content = (
             <div key={i}>
-              <SectionHeader level="2">
+              {slice.title ? (
+                <SectionHeader level="2">
                 {slice.title}
-              </SectionHeader>
-              <TileContainer>
+                </SectionHeader>
+              ): null}
+              <TileContainer lead={slice.introduction}>
                 {slice.tiles.map((tile, i) => (
                   <Tile
                     key={i}

@@ -17,7 +17,11 @@ const renderHtml = (content) => {
 };
 
 const resolveDate = (date) => {
-  return moment(date);
+  if (date) {
+    return moment(date);
+  }
+
+  return null;
 }
 
 const renderText = (content) => {
