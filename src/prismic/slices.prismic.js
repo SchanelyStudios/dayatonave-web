@@ -28,6 +28,7 @@ const transformBlob = (rawSlice) => {
   return {
     type: rawSlice.type || null,
     title: rawSlice.primary.title ? renderText(rawSlice.primary.title) : null,
+    lead: rawSlice.primary.lead ? renderText(rawSlice.primary.lead) : null,
     content: renderHtml(rawSlice.primary.content),
     cta: resolveCTA(rawSlice.primary.call_to_action)
   };

@@ -68,7 +68,7 @@ const Slices = ({ slices }) => (
         break;
         default:
           content = (
-            <Blob key={i} heading={slice.title} cta={slice.cta}>
+            <Blob key={i} heading={slice.title} cta={slice.cta} lead={slice.lead}>
               {slice.content}
             </Blob>
           );
