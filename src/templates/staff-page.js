@@ -40,10 +40,10 @@ const StaffPage = ({ data }) => {
   return (
     <Layout activePath={`/staff/${copy.slug}`}>
       <SEO title={copy.name} />
-      <SectionHeader>
-        {copy.name} <em>{copy.position}</em>
+      <SectionHeader subtext={copy.position}>
+        {copy.name}
       </SectionHeader>
-      <Figure src={copy.picture.src} alt={copy.picture.alt} />
+      <Figure type="avatar-lg" src={copy.picture.src} alt={copy.picture.alt} />
       <Blob>
         {copy.biography}
       </Blob>
