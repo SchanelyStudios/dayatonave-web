@@ -7,6 +7,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import SectionHeader from "../components/common/section-header";
 import Spread from "../components/common/spread";
+import TempPage from "../templates/temp-page";
 
 import ContentService from "../services/content.service";
 
@@ -37,7 +38,17 @@ export const query = graphql`
 `;
 
 const MinistryPage = (input) => {
-  const { title, intro, ministries } = ContentService.ministries(input);
+  const copy = ContentService.ministries(input);
+
+  if (!copy) {
+    return (
+      <Layout activeNavPath="/ministries">
+        <TempPage />
+      </Layout>
+    );
+  }
+
+  const { title, intro, ministries } = copy;
 
   return (
     <Layout activeNavPath="/ministries">

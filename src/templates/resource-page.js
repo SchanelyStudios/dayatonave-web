@@ -5,6 +5,7 @@ import SEO from "../components/seo";
 import SectionHeader from "../components/common/section-header";
 import Blob from "../components/common/blob";
 import Button from "../components/common/button";
+import TempPage from "./temp-page";
 
 import ContentService from "../services/content.service";
 
@@ -40,7 +41,15 @@ export const query = graphql`
 `;
 
 const ResourcePage = ({ data }) => {
-  let copy = ContentService.resourcePage(data);
+  const copy = ContentService.resourcePage(data);
+
+  if (!copy) {
+    return (
+      <Layout activeNavPath="/">
+        <TempPage />
+      </Layout>
+    );
+  }
 
   return (
     <Layout activePath={`/resources/${copy.slug}`}>

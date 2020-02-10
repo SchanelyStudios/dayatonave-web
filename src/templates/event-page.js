@@ -7,6 +7,7 @@ import Blob from "../components/common/blob";
 import BlobLead from "../components/common/blob/lead";
 import Figure from "../components/common/figure";
 import Slices from "../components/slices";
+import TempPage from "./temp-page";
 
 import ContentService from "../services/content.service";
 
@@ -105,7 +106,15 @@ export const query = graphql`
 `;
 
 const EventPage = ({ data }) => {
-  let copy = ContentService.eventPage(data);
+  const copy = ContentService.eventPage(data);
+
+  if (!copy) {
+    return (
+      <Layout activeNavPath="/">
+        <TempPage />
+      </Layout>
+    );
+  }
 
   return (
     <Layout activePath={`/events/${copy.slug}`}>

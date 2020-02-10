@@ -5,6 +5,7 @@ import SEO from "../components/seo";
 import SectionHeader from "../components/common/section-header";
 import Spread from "../components/common/spread";
 import Slices from "../components/slices";
+import TempPage from "./temp-page";
 
 import ContentService from "../services/content.service";
 
@@ -99,7 +100,15 @@ export const query = graphql`
 `;
 
 const MinistryPage = ({ data }) => {
-  let copy = ContentService.ministryPage(data);
+  const copy = ContentService.ministryPage(data);
+
+  if (!copy) {
+    return (
+      <Layout activeNavPath="/">
+        <TempPage />
+      </Layout>
+    );
+  }
 
   return (
     <Layout activePath={`/events/${copy.slug}`}>

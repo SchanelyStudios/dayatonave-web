@@ -12,6 +12,7 @@ import SEO from "../components/seo";
 import Spread from "../components/common/spread";
 import Tile from "../components/common/tile";
 import TileContainer from "../components/common/tile/container";
+import TempPage from "../templates/temp-page";
 
 const apiKey = process.env.GATSBY_GOOGLE_API;
 
@@ -107,6 +108,14 @@ export const query = graphql`
 
 const IndexPage = (input) => {
   const copy = ContentService.home(input);
+
+  if (!copy) {
+    return (
+      <Layout activeNavPath="/">
+        <TempPage />
+      </Layout>
+    );
+  }
 
   // Set up youtube embed as figure for intro
   let introFigure = {

@@ -11,6 +11,7 @@ import Spread from "../components/common/spread";
 import SpreadLead from "../components/common/spread/lead";
 import Tile from "../components/common/tile";
 import TileContainer from "../components/common/tile/container";
+import TempPage from "../templates/temp-page";
 
 export const query = graphql`
   query AboutPageQuery {
@@ -61,6 +62,14 @@ export const query = graphql`
 
 const AboutPage = (input) => {
   const copy = ContentService.about(input);
+
+  if (!copy) {
+    return (
+      <Layout activeNavPath="/about">
+        <TempPage />
+      </Layout>
+    );
+  }
 
   // Set up youtube embed as figure for intro
   let introFigure = {

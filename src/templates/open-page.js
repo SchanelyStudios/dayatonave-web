@@ -4,6 +4,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import SectionHeader from "../components/common/section-header";
 import Slices from "../components/slices";
+import TempPage from "./temp-page";
 
 import ContentService from "../services/content.service";
 
@@ -100,7 +101,17 @@ export const query = graphql`
 `;
 
 const OpenPage = ({ data }) => {
-  let { title, slices, slug } = ContentService.openPage(data);
+  const copy = ContentService.openPage(data);
+
+  if (!copy) {
+    return (
+      <Layout activeNavPath="/">
+        <TempPage />
+      </Layout>
+    );
+  }
+
+  const { title, slices, slug } = copy;
 
   return (
     <Layout activeNavPath={`/${slug}`}>

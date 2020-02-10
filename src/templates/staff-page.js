@@ -6,6 +6,7 @@ import Blob from "../components/common/blob";
 import Figure from "../components/common/figure";
 import SectionHeader from "../components/common/section-header";
 import Slices from "../components/slices";
+import TempPage from "./temp-page";
 
 import ContentService from "../services/content.service";
 
@@ -26,7 +27,15 @@ export const query = graphql`
 `;
 
 const StaffPage = ({ data }) => {
-  let copy = ContentService.staffPage(data);
+  const copy = ContentService.staffPage(data);
+
+  if (!copy) {
+    return (
+      <Layout activeNavPath="/">
+        <TempPage />
+      </Layout>
+    );
+  }
 
   return (
     <Layout activePath={`/staff/${copy.slug}`}>
