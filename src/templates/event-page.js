@@ -116,17 +116,35 @@ const EventPage = ({ data }) => {
     );
   }
 
+  const {
+    slug,
+    date,
+    title,
+    time_details,
+    cover,
+    summary,
+    slices
+  } = copy;
+
+  const formattedDate = date ? date.format("MMMM D, YYYY") : null;
+
   return (
-    <Layout activePath={`/events/${copy.slug}`}>
-      <SEO title={copy.title} />
-      <SectionHeader eyebrow={copy.date.format("MMMM D, YYYY")}>
-        {copy.title}
+    <Layout activePath={`/events/${slug}`}>
+      <SEO title={title} />
+
+      {cover ? (
+        <Figure type="banner" src={cover.src} alt={cover.alt} />
+      ): null}
+
+      <SectionHeader eyebrow={formattedDate}>
+        {title}
       </SectionHeader>
-      <Blob lead={<BlobLead>{copy.time_details}</BlobLead>}>
-        <Figure src={copy.cover.src} alt={copy.cover.alt} />
-        {copy.summary}
+
+      <Blob centered={true} lead={time_details}>
+        <BlobLead>{summary}</BlobLead>
       </Blob>
-      <Slices slices={copy.slices} />
+
+      <Slices slices={slices} />
     </Layout>
   );
 }

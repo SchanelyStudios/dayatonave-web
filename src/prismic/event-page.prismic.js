@@ -2,15 +2,18 @@ import { renderText, renderHtml, resolveImage, resolveDate } from "../utils/pris
 import { transformSlices } from "./slices.prismic";
 
 export default (input) => {
-  let page = input.prismic.event_page,
-    slices = [];
+  const page = input.prismic.event_page;
 
-  if (page.body) {
-    slices = page.body.map(transformSlices);
+  if (!page) {
+    return null;
   }
 
+  const slices = page.body
+    ? page.body.map(transformSlices)
+    : [];
+
   return {
-    slug: page._meta.uid,
+    slug: page._meta ? page._meta.uid : "/",
     title: renderText(page.event_title),
     summary: renderHtml(page.event_summary),
     cover: resolveImage(page.cover),
