@@ -2,13 +2,22 @@ import React from "react";
 
 import ClassNames from "classnames";
 
-const TileContainer = ({ children }) => {
+const TileContainer = ({ children, lead }) => {
   let classNames = ClassNames("tiles");
 
+  lead = lead ? (
+    <div className="lead lead--centered">
+      {lead}
+    </div>
+  ) : null;
+
   return (
-    <ul className={classNames}>
-      {children}
-    </ul>
+    <>
+      {lead}
+      <ul className={classNames}>
+        {children}
+      </ul>
+    </>
   );
 };
 

@@ -18,12 +18,14 @@ const Slices = ({ slices }) => (
         case "spread":
           content = (
             <div key={i}>
-              <SectionHeader level="2">
+              {slice.title ? (
+                <SectionHeader level="2">
                 {slice.title}
-              </SectionHeader>
+                </SectionHeader>
+              ): null}
               <Spread
                 key={i}
-                lead={<SpreadLead>{slice.lead}</SpreadLead>}
+                lead={slice.lead ? <SpreadLead>{slice.lead}</SpreadLead> : null}
                 figure={slice.figure}
                 cta={slice.cta}
               >
@@ -46,10 +48,12 @@ const Slices = ({ slices }) => (
         case "tiles":
           content = (
             <div key={i}>
-              <SectionHeader level="2">
+              {slice.title ? (
+                <SectionHeader level="2">
                 {slice.title}
-              </SectionHeader>
-              <TileContainer>
+                </SectionHeader>
+              ): null}
+              <TileContainer lead={slice.introduction}>
                 {slice.tiles.map((tile, i) => (
                   <Tile
                     key={i}
@@ -68,7 +72,7 @@ const Slices = ({ slices }) => (
         break;
         default:
           content = (
-            <Blob key={i} heading={slice.title} cta={slice.cta}>
+            <Blob key={i} heading={slice.title} cta={slice.cta} lead={slice.lead}>
               {slice.content}
             </Blob>
           );

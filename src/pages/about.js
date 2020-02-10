@@ -11,6 +11,7 @@ import Spread from "../components/common/spread";
 import SpreadLead from "../components/common/spread/lead";
 import Tile from "../components/common/tile";
 import TileContainer from "../components/common/tile/container";
+import TempPage from "../templates/temp-page";
 
 export const query = graphql`
   query AboutPageQuery {
@@ -61,16 +62,32 @@ export const query = graphql`
 
 const AboutPage = (input) => {
   const copy = ContentService.about(input);
-  console.log(copy);
+
+  if (!copy) {
+    return (
+      <Layout activeNavPath="/about">
+        <TempPage />
+      </Layout>
+    );
+  }
+
+  const {
+    title,
+    intro,
+    videoId,
+    beliefs,
+    pastoral_team,
+    faqs
+  } = copy;
 
   // Set up youtube embed as figure for intro
-  let introFigure = {
+  const introFigure = {
     alt: "",
     src: null,
     element: (
       <YouTube
         className="about-page__intro__video"
-        videoId={copy.videoId}
+        videoId={videoId}
         opts={{
           width: "100%",
           height: "320px"
@@ -81,20 +98,20 @@ const AboutPage = (input) => {
 
   return (
     <Layout activeNavPath="/about">
-      <SEO title={copy.title} />
+      <SEO title={title} />
       <main className="page about-page">
-        <SectionHeader>{copy.intro.title}</SectionHeader>
+        <SectionHeader>{intro.title}</SectionHeader>
         <Spread
           className="about-page__intro"
-          lead={<SpreadLead>{copy.intro.lead}</SpreadLead>}
+          lead={<SpreadLead>{intro.lead}</SpreadLead>}
           figure={introFigure}
         >
-          {copy.intro.copy}
+          {intro.copy}
         </Spread>
 
-        <SectionHeader level="2">{copy.beliefs.heading}</SectionHeader>
+        <SectionHeader level="2">{beliefs.heading}</SectionHeader>
         <TileContainer className="about-page__beliefs">
-          {copy.beliefs.items.map(({ figure, label, content }, i) => (
+          {beliefs.items.map(({ figure, label, content }, i) => (
             <Tile
               key={i}
               type="illustration"
@@ -106,13 +123,13 @@ const AboutPage = (input) => {
           ))}
         </TileContainer>
 
-        <Button centered={true} className="about__beliefs-cta" path={copy.beliefs.link.path}>
-          {copy.beliefs.link.label}
+        <Button centered={true} className="about__beliefs-cta" path={beliefs.link.path}>
+          {beliefs.link.label}
         </Button>
 
-        <SectionHeader level="2">{copy.pastoral_team.heading}</SectionHeader>
+        <SectionHeader level="2">{pastoral_team.heading}</SectionHeader>
         <TileContainer className="about-page__pastors">
-          {copy.pastoral_team.pastors.map(({ name, position, figure }, i) => (
+          {pastoral_team.pastors.map(({ name, position, figure }, i) => (
             <Tile
               key={i}
               type="facehole"
@@ -123,9 +140,9 @@ const AboutPage = (input) => {
           ))}
         </TileContainer>
 
-        <SectionHeader level="2">{copy.faqs.heading}</SectionHeader>
+        <SectionHeader level="2">{faqs.heading}</SectionHeader>
         <dl className="faqs">
-          {copy.faqs.faqs.map(({ question, answer }) => (
+          {faqs.faqs.map(({ question, answer }) => (
             <div className="faq">
               <dt className="faq__question">{question}</dt>
               <dd className="faq__answer">{answer}</dd>

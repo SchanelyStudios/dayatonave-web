@@ -3,30 +3,36 @@ import { renderHtml, renderText, resolveYoutubeId } from "../utils/prismicRender
 export default (input) => {
   const page = input.data.prismic.home_page;
 
+  if (!page) {
+    return null;
+  }
+
   // Build What to Expect tiles
-  let whatToExpectItems = page.what_to_expect_tiles.map((item, i) => {
-    return {
-      heading: renderText(item.tile_title),
-      content: renderHtml(item.tile_content)
-    };
-  });
+  let whatToExpectItems = page && page.what_to_expect_tiles
+    ? page.what_to_expect_tiles.map((item, i) => {
+      return {
+        heading: renderText(item.tile_title),
+        content: renderHtml(item.tile_content)
+      };
+    }): [];
 
   // TODO: Build Schedule
-  let scheduleDays = page.current_schedule.body.map((day) => {
-    let blocks = day.fields
-      ? day.fields.map((block) => {
-          return {
-            time: renderText(block.times),
-            details: renderHtml(block.details)
-          };
-        })
-      : [];
+  let scheduleDays = page && page.current_schedule
+    ? page.current_schedule.body.map((day) => {
+      let blocks = day.fields
+        ? day.fields.map((block) => {
+            return {
+              time: renderText(block.times),
+              details: renderHtml(block.details)
+            };
+          })
+        : [];
 
-    return {
-      label: renderText(day.primary.block_heading),
-      blocks
-    };
-  });
+      return {
+        label: renderText(day.primary.block_heading),
+        blocks
+      };
+    }): [];
 
   // TODO: Build carousel
 

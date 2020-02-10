@@ -5,9 +5,9 @@ import Flier from "../components/common/flier";
 import FlierContainer from "../components/common/flier/container";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import Placeholdit from "../components/common/placeholdit";
 import SectionHeader from "../components/common/section-header";
 import Spread from "../components/common/spread";
+import TempPage from "../templates/temp-page";
 
 import ContentService from "../services/content.service";
 
@@ -38,7 +38,17 @@ export const query = graphql`
 `;
 
 const MinistryPage = (input) => {
-  const { title, intro, ministries } = ContentService.ministries(input);
+  const copy = ContentService.ministries(input);
+
+  if (!copy) {
+    return (
+      <Layout activeNavPath="/ministries">
+        <TempPage />
+      </Layout>
+    );
+  }
+
+  const { title, intro, ministries } = copy;
 
   return (
     <Layout activeNavPath="/ministries">

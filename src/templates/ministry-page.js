@@ -3,13 +3,14 @@ import React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import SectionHeader from "../components/common/section-header";
+import Spread from "../components/common/spread";
 import Slices from "../components/slices";
 import TempPage from "./temp-page";
 
 import ContentService from "../services/content.service";
 
 export const query = graphql`
-  fragment openPageLinkQuery on PRISMIC__Linkable {
+  fragment minsitryPagelinkQuery on PRISMIC__Linkable {
     _linkType
     ... on PRISMIC__ExternalLink{
       url
@@ -32,28 +33,28 @@ export const query = graphql`
       }
     }
   }
-  query OpenPageQuery($uid: String!){
+  query MinistryPageQuery($uid: String!) {
     prismic {
-      test_open_page(uid:$uid, lang:"en-us") {
+      ministry(lang: "en-us", uid: $uid) {
         _meta {
           uid
         }
-        title1
-        summary
-        cover
+        ministry_name
+        short_description
+        thumbnail
         body{
-          ... on PRISMIC_Test_open_pageBodyBlob {
+          ... on PRISMIC_MinistryBodyBlob {
             type
             primary {
               title
               lead
               content
               call_to_action {
-                ...openPageLinkQuery
+                ...minsitryPagelinkQuery
               }
             }
           }
-          ... on PRISMIC_Test_open_pageBodySpread {
+          ... on PRISMIC_MinistryBodySpread {
             type
             primary {
               title1
@@ -61,22 +62,22 @@ export const query = graphql`
               content
               figure
               call_to_action {
-                ...openPageLinkQuery
+                ...minsitryPagelinkQuery
               }
             }
           }
-          ... on PRISMIC_Test_open_pageBodyFlier {
+          ... on PRISMIC_MinistryBodyFlier {
             type
             primary {
               title1
               content
               figure
               call_to_action {
-                ...openPageLinkQuery
+                ...minsitryPagelinkQuery
               }
             }
           }
-          ... on PRISMIC_Test_open_pageBodyTiles {
+          ... on PRISMIC_MinistryBodyTiles {
             type
             primary{
               title1
@@ -89,7 +90,7 @@ export const query = graphql`
               sublabel
               content
               call_to_action {
-                ...openPageLinkQuery
+                ...minsitryPagelinkQuery
               }
             }
           }
@@ -100,8 +101,8 @@ export const query = graphql`
   }
 `;
 
-const OpenPage = ({ data }) => {
-  const copy = ContentService.openPage(data);
+const MinistryPage = ({ data }) => {
+  const copy = ContentService.ministryPage(data);
 
   if (!copy) {
     return (
@@ -111,17 +112,18 @@ const OpenPage = ({ data }) => {
     );
   }
 
-  const { title, slices, slug } = copy;
-
   return (
-    <Layout activeNavPath={`/${slug}`}>
-      <SEO title={title} />
+    <Layout activePath={`/events/${copy.slug}`}>
+      <SEO title={copy.title} />
       <SectionHeader>
-        {title}
+        {copy.title}
       </SectionHeader>
-      <Slices slices={slices} />
+      <Spread figure={copy.thumbnail}>
+        {copy.summary}
+      </Spread>
+      <Slices slices={copy.slices} />
     </Layout>
-  )
+  );
 }
 
-export default OpenPage;
+export default MinistryPage;

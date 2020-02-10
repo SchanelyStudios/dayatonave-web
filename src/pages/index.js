@@ -12,6 +12,7 @@ import SEO from "../components/seo";
 import Spread from "../components/common/spread";
 import Tile from "../components/common/tile";
 import TileContainer from "../components/common/tile/container";
+import TempPage from "../templates/temp-page";
 
 const apiKey = process.env.GATSBY_GOOGLE_API;
 
@@ -108,14 +109,32 @@ export const query = graphql`
 const IndexPage = (input) => {
   const copy = ContentService.home(input);
 
+  if (!copy) {
+    return (
+      <Layout activeNavPath="/">
+        <TempPage />
+      </Layout>
+    );
+  }
+
+  const {
+    location,
+    videoId,
+    title,
+    intro,
+    current_schedule,
+    what_to_expect,
+    about_link
+  } = copy;
+
   // Set up youtube embed as figure for intro
-  let introFigure = {
+  const introFigure = {
     alt: "",
     src: null,
     element: (
       <YouTube
         className="home__intro__video"
-        videoId={copy.videoId}
+        videoId={videoId}
         opts={{
           width: "100%",
           height: "320px"
@@ -125,30 +144,32 @@ const IndexPage = (input) => {
   };
 
   // Build Google Map Query
-  const churchGeo = copy.location.latitude + "%2C" + copy.location.longitude;
-  const centerGeo = copy.location.latitude + "%2C" + (copy.location.longitude + .1);
+  const churchGeo = location.latitude + "%2C" + location.longitude;
+  const centerGeo = location.latitude + "%2C" + (location.longitude + .1);
   const mapQuery = `key=${apiKey}&q=${churchGeo}&center=${centerGeo}&zoom=11`;
 
   return (
     <>
       <Layout activeNavPath="/">
-        <SEO title={copy.title} />
+        <SEO title={title} />
         <main className="page-home">
-          <h1 aria-hidden="true">{copy.title}</h1>
+          <h1 aria-hidden="true">{title}</h1>
 
           <div className="page-home__features figure">
             <Placeholdit size="1620x800" text="Carousel FPO" />
           </div>
 
-          <SectionHeader level="2">{copy.intro.title}</SectionHeader>
-
+          <SectionHeader>{intro.title}</SectionHeader>
           <Spread
             className="page-home__intro"
             figure={introFigure}
-            cta={{ path: copy.about_link, label: "Learn more" }}
+            cta={{
+              path: about_link,
+              label: "Learn more"
+            }}
           >
-            <p className="lead">{copy.intro.lead}</p>
-            {copy.intro.block}
+            <p className="lead">{intro.lead}</p>
+            {intro.block}
           </Spread>
 
           <SectionHeader level="2">Location and Schedule</SectionHeader>
@@ -164,7 +185,7 @@ const IndexPage = (input) => {
               />
             </div>
             <div className="event-dets__schedule schedule-group">
-              {copy.current_schedule.days.map(({ label, blocks }, i) => (
+              {current_schedule.days.map(({ label, blocks }, i) => (
                 <div className="schedule" key={i}>
                   <h4 className="schedule__label">{label}</h4>
                   <ul className="schedule__events">
@@ -182,9 +203,9 @@ const IndexPage = (input) => {
             </div>
           </div>
 
-          <SectionHeader level="2">{copy.what_to_expect.title}</SectionHeader>
-          <TileContainer className="home__what-to-expect">
-            {copy.what_to_expect.items.map(({ heading, content }, i) => (
+          <SectionHeader level="2">{what_to_expect.title}</SectionHeader>
+          <TileContainer className="page-home__what-to-expect">
+            {what_to_expect.items.map(({ heading, content }, i) => (
               <Tile
                 key={i}
                 title={heading}
@@ -194,7 +215,7 @@ const IndexPage = (input) => {
             ))}
           </TileContainer>
 
-          <Button centered={true} className="home__ministries-cta" path="/ministries">Our Ministries</Button>
+          <Button centered={true} className="page-home__ministries-cta" path="/ministries">Our Ministries</Button>
         </main>
       </Layout>
     </>
