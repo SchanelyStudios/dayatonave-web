@@ -60,13 +60,13 @@ const ContactPage = (input) => {
             <ul className="fields">
               <li className="field">
                 <label className="field__label" htmlFor="email">Email</label>
-                <div className="field__control">
+                <div className="field__control field-control">
                   <input type="email" name="_replyto" id="email" />
                 </div>
               </li>
               <li className="field">
                 <label className="field__label" htmlFor="subject">Subject</label>
-                <div className="field__control">
+                <div className="field__control field-control">
                   <select name="subject" id="subject">
                     <option>General inquiry</option>
                     <option>Contact senior pastor</option>
@@ -79,7 +79,7 @@ const ContactPage = (input) => {
               </li>
               <li className="field">
                 <label className="field__label" htmlFor="message">Message</label>
-                <div className="field__control">
+                <div className="field__control field-control">
                   <textarea name="message" id="message"></textarea>
                 </div>
               </li>

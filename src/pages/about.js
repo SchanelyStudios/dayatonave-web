@@ -48,6 +48,9 @@ export const query = graphql`
               name
               position
               picture
+              _meta {
+                uid
+              }
             }
           }
         }
@@ -129,21 +132,22 @@ const AboutPage = (input) => {
 
         <SectionHeader level="2">{pastoral_team.heading}</SectionHeader>
         <TileContainer className="about-page__pastors">
-          {pastoral_team.pastors.map(({ name, position, figure }, i) => (
+          {pastoral_team.pastors.map(({ name, position, figure, cta }, i) => (
             <Tile
               key={i}
               type="facehole"
               title={name}
               subtitle={position}
               figure={figure}
+              cta={cta}
             />
           ))}
         </TileContainer>
 
         <SectionHeader level="2">{faqs.heading}</SectionHeader>
         <dl className="faqs">
-          {faqs.faqs.map(({ question, answer }) => (
-            <div className="faq">
+          {faqs.faqs.map(({ question, answer }, i) => (
+            <div key={i} className="faq">
               <dt className="faq__question">{question}</dt>
               <dd className="faq__answer">{answer}</dd>
             </div>
