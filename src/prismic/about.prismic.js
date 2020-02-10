@@ -24,6 +24,10 @@ export default (input) => {
         name: renderText(pastor.name),
         position: renderText(pastor.position),
         figure: resolveImage(pastor.picture),
+        cta: pastor._meta ? {
+          label: "More »",
+          path: "/staff/" + pastor._meta.uid
+        } : null
       };
     }) : [];
 

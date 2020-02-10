@@ -7,6 +7,7 @@ import MinistriesMocks from '../mocks/ministries';
 
 // Prismic singleton parsers
 import AboutPrismic from '../prismic/about.prismic';
+import ContactPrismic from '../prismic/contact.prismic';
 import HomePrismic from '../prismic/home.prismic';
 import MinistriesPrismic from '../prismic/ministries.prismic';
 
@@ -20,23 +21,27 @@ import StaffPagePrismic from '../prismic/staff-page.prismic';
 export default {
   // Static pages
   calendar,
-  contact,
 
   // Prismic Singletons
   about: (input) => {
     return input.useMock
-    ? about
-    : AboutPrismic(input);
+      ? about
+      : AboutPrismic(input);
+  },
+  contact: (input) => {
+    return input.useMock
+      ? contact
+      : ContactPrismic(input);
   },
   home: (input) => {
     return input.useMock
-    ? home
-    : HomePrismic(input);
+      ? home
+      : HomePrismic(input);
   },
   ministries: (input) => {
     return input.useMock
-    ? MinistriesMocks
-    : MinistriesPrismic(input);
+      ? MinistriesMocks
+      : MinistriesPrismic(input);
   },
 
   // Prismic Repeatables
