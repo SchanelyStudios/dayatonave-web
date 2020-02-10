@@ -2,24 +2,18 @@ import { renderText } from "../utils/prismicRenderer";
 import { transformSlices } from "./slices.prismic";
 
 export default (input) => {
-  let page = input.prismic.test_open_page;
+  const page = input.prismic.test_open_page;
 
   if (!page) {
-    page = {
-      title1: "",
-      body: []
-    }
+    return null;
   }
 
-  let { body, title1: title } = page;
-  let slices = [];
-
-  if (body) {
-    slices = body.map(transformSlices);
-  }
+  const slices = page.body
+    ? page.body.map(transformSlices)
+    : [];
 
   return {
-    title: renderText(title),
+    title: renderText(page.title1),
     slug: page._meta ? page._meta.uid : "/",
     slices
   };

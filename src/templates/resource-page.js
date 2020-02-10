@@ -51,17 +51,24 @@ const ResourcePage = ({ data }) => {
     );
   }
 
+  const {
+    slug,
+    title,
+    description,
+    link
+  } = copy;
+
   return (
-    <Layout activePath={`/resources/${copy.slug}`}>
-      <SEO title={copy.title} />
+    <Layout activePath={`/resources/${slug}`}>
+      <SEO title={title} />
       <SectionHeader>
-        {copy.title}
+        {title}
       </SectionHeader>
       <Blob>
-        {copy.description}
+        {description}
       </Blob>
-      {copy.link ? (
-        <Button className="btn--center" href={copy.link.url}>{copy.link.label}</Button>
+      {link ? (
+        <Button className="btn--center" href={link.url}>{link.label}</Button>
       ) : null}
     </Layout>
   );
