@@ -1,11 +1,8 @@
-import React from "react";
+// import React from "react";
 
 export default {
-  title: "Contact Us",
-  content: (
-    <>
-      <h2>Coming soon!</h2>
-      <p>We just can't wait to get this amazing content in place.</p>
-    </>
-  )
+  location: {
+    latitude: 39.69244361305228,
+    longitude: -83.9544403553009
+  }
 };
