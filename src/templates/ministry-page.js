@@ -40,6 +40,8 @@ export const query = graphql`
           uid
         }
         ministry_name
+        short_description
+        thumbnail
         body{
           ... on PRISMIC_MinistryBodyBlob {
             type
