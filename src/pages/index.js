@@ -1,8 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
-import YouTube from 'react-youtube';
 
-import ContentService from '../services/content.service';
+import ContentService from "../services/content.service";
 
 import Button from "../components/common/button";
 import Features from "../components/common/features";
