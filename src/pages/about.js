@@ -88,13 +88,14 @@ const AboutPage = (input) => {
     alt: "",
     src: null,
     element: (
-      <YouTube
-        className="about-page__intro__video"
-        videoId={videoId}
-        opts={{
-          width: "100%",
-          height: "320px"
-        }}
+      <iframe
+        width="100%"
+        height="320px"
+        src={`https://www.youtube.com/embed/${videoId}`}
+        frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        title="Live stream"
       />
     )
   };
