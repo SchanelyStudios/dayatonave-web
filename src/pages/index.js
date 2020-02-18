@@ -5,8 +5,8 @@ import YouTube from 'react-youtube';
 import ContentService from '../services/content.service';
 
 import Button from "../components/common/button";
+import Features from "../components/common/features";
 import Layout from "../components/layout";
-import Placeholdit from "../components/common/placeholdit";
 import SectionHeader from "../components/common/section-header";
 import SEO from "../components/seo";
 import Spread from "../components/common/spread";
@@ -124,21 +124,33 @@ const IndexPage = (input) => {
     intro,
     current_schedule,
     what_to_expect,
-    about_link
+    about_link,
+    features
   } = copy;
 
   // Set up youtube embed as figure for intro
   const introFigure = {
     alt: "",
     src: null,
+    // element: (
+    //   <YouTube
+    //     className="home__intro__video"
+    //     videoId={videoId}
+    //     opts={{
+    //       width: "100%",
+    //       height: "320px"
+    //     }}
+    //   />
+    // )
     element: (
-      <YouTube
-        className="home__intro__video"
-        videoId={videoId}
-        opts={{
-          width: "100%",
-          height: "320px"
-        }}
+      <iframe
+        width="100%"
+        height="320px"
+        src={`https://www.youtube.com/embed/${videoId}`}
+        frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        title="Live stream"
       />
     )
   };
@@ -155,9 +167,7 @@ const IndexPage = (input) => {
         <main className="page-home">
           <h1 aria-hidden="true">{title}</h1>
 
-          <div className="page-home__features figure">
-            <Placeholdit size="1620x800" text="Carousel FPO" />
-          </div>
+          <Features features={features} />
 
           <SectionHeader>{intro.title}</SectionHeader>
           <Spread
